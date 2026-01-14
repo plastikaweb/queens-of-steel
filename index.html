@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queens of Steel Fest 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#xerrades" data-key="nav_20years">20 ANYS</a></li>
+                <li><a href="#concerts" data-key="nav_concerts">CONCERTS</a></li>
+                <li><a href="#activitats" data-key="nav_activities">ACTIVITATS</a></li>
+                <li><a href="#voluntaris" data-key="nav_participate">PARTICIPA</a></li>
+                <li><a href="#ubicacio" data-key="nav_location">UBICACIÓ</a></li>
+            </ul>
+            <div class="lang-switch">
+                <button onclick="setLang('ca')" id="btn-ca" class="active">CA</button>
+                <button onclick="setLang('es')" id="btn-es">ES</button>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inici">
+        <p style="letter-spacing: 5px; color: var(--color-accent);">20th ANNIVERSARY</p>
+        <h1>QUEENS OF STEEL <span>FEST 2026</span></h1>
+        
+        <div class="hero-meta">
+            <span data-key="date">7 DE MARÇ</span> | BARCELONA
+        </div>
+
+        <a href="#entrades" class="btn" data-key="tickets">ENTRADES DISPONIBLES</a>
+    </header>
+    
+        <section id="xerrades" class="container">
+        <div class="torn-separator" style="margin-bottom: 3rem;"></div>
+        <h2 data-key="noise_title">20 AÑOS DE RUIDO</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+            <div style="flex: 1; min-width: 300px;">
+                <p class="mb-2" data-key="noise_desc">Celebrem dues dècades de resistència sonora. Hi haurà xerrades, exposicions de fanzines i distris.</p>
+                <ul style="font-size: 1.1rem;">
+                    <li data-key="schedule_doors">> 17:00h - Obertura de portes</li>
+                    <li data-key="schedule_talk">> 18:00h - Xerrada "Autogestió i Soroll"</li>
+                    <li data-key="schedule_concerts">> 19:30h - Inici Concerts</li>
+                </ul>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem; flex: 1; min-width: 300px;">
+                <div style="border: 2px solid var(--color-accent); padding: 20px; transform: rotate(1deg);">
+                    <h3 style="color: var(--color-accent)">COLECTIVO 1 AÑO OFICIAL</h3>
+                    <p data-key="collective_desc">Espai per a col·lectius, distris i material polític.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="concerts" class="container">
+        <div class="torn-separator"></div>
+
+        <div class="text-center">
+            <h2>LINE UP</h2>
+        </div>
+        
+        <div class="band-grid">
+            <article class="band-card">
+                <img src="assets/img/tugurio.jpg" alt="Tugurio" class="band-img">
+                <h3>TUGURIO</h3>
+                <p>Grindcore / Crust</p>
+            </article>
+
+            <article class="band-card">
+                <img src="assets/img/sacrosancta.jpg" alt="Sacrosancta Decadencia Occidental" class="band-img">
+                <h3 style="font-size: 1.5rem">SACROSANCTA DECADENCIA OCCIDENTAL</h3>
+                <p>Black Metal / Punk</p>
+            </article>
+
+            <article class="band-card">
+                <img src="assets/img/saton.jpg" alt="Saton" class="band-img">
+                <h3>SATON</h3>
+                <p>Hardcore / Screamo</p>
+            </article>
+            
+            <article class="band-card">
+                <img src="assets/img/mater_tenebrarum.jpg" alt="Mater Tenebrarum" class="band-img">
+                <h3>MATER TENEBRARUM</h3>
+                <p>Black Metal</p>
+            </article>
+            
+            <article class="band-card">
+                <img src="assets/img/impia.jpg" alt="Impía" class="band-img">
+                <h3>IMPÍA</h3>
+                <p>Crust / D-Beat</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="activitats" class="container">
+        <div class="torn-separator"></div>
+        <div class="text-center">
+            <h2 data-key="activities_title">ACTIVITATS</h2>
+        </div>
+        
+        <div class="band-grid">
+            <article class="band-card">
+                <div style="width: 100%; height: 200px; background: #222; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid #444;">
+                    <span style="font-size: 3rem;">🎤</span>
+                </div>
+                <h3 data-key="act_1_title">Taller de Guturals</h3>
+                <p data-key="act_1_desc">Tècnica vocal extrema amb Laia de Saton.</p>
+            </article>
+
+            <article class="band-card">
+                <div style="width: 100%; height: 200px; background: #222; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid #444;">
+                    <span style="font-size: 3rem;">💬</span>
+                </div>
+                <h3 data-key="act_2_title">Dones i Black Metal</h3>
+                <p data-key="act_2_desc">Taula rodona sobre la presència femenina a l'escena extrema.</p>
+            </article>
+        </div>
+    </section>
+
+
+
+    <section id="voluntaris">
+        
+        <div class="container text-center">
+            <div class="torn-separator"></div>
+            <h2 data-key="help_title">¿NOS ECHAS UNA MANO?</h2>
+            <p class="mb-2" style="max-width: 600px; margin-left: auto; margin-right: auto;" data-key="help_desc">
+                Busquem gent per l'equip de treball. Sense vosaltres això no seria possible. T'apuntes a fer un torn?
+            </p>
+            
+            <div class="roles-list justify-content-center" style="justify-content: center;">
+                <span data-key="role_bar">BARRA</span>
+                <span data-key="role_stage">ESCENARI</span>
+                <span data-key="role_access">ACCÉS</span>
+                <span data-key="role_logistics">LOGÍSTICA</span>
+                <span data-key="role_transport">TRANSPORT</span>
+            </div>
+
+            <br>
+            <a href="mailto:teuemail@email.com" class="btn" style="background: #000; color: #fff; border-color: #000;" data-key="write_us">ESCRIU-NOS</a>
+        </div>
+    </section>
+
+    <section id="ubicacio" class="container text-center">
+        <div class="torn-separator"></div>
+
+        <h2 data-key="location_title">ON ÉS?</h2>
+        <p class="mb-2">Carrer del Soroll, 666, Barcelona</p>
+        
+        <div style="width: 100%; height: 300px; background: #222; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-accent);">
+            <p style="color: #666;">[ AQUI VA L'IFRAME DE GOOGLE MAPS ]</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>QUEENS OF STEEL FEST 2026</p>
+        <p><span data-key="footer_design">Dissenyat per la Causa. Autogestió sempre.</span> <br> <span style="font-size: 0.9em; opacity: 0.8;">Web feta per <a href="https://www.plastikaweb.com" target="_blank" rel="noopener">Plastikaweb</a></span></p>
+    </footer>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

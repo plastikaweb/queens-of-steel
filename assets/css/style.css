@@ -1,0 +1,292 @@
+:root {
+    --color-bg: #0a0a0a;
+    --color-text: #f0f0f0;
+    --color-accent: #b24bf3; /* El lila dels pòsters */
+    --color-accent-dim: #7a2aab;
+    --color-paper: #e3e3e3;
+    --color-black: #000;
+    
+    --font-display: 'Black Ops One', cursive;
+    --font-body: 'Courier Prime', monospace;
+}
+
+/* --- Reset & Base --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Efecte de soroll de fons (Noise texture) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* --- Components --- */
+.container {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--color-accent);
+    color: var(--color-black);
+    padding: 10px 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid var(--color-accent);
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--color-accent);
+    box-shadow: 4px 4px 0 var(--color-accent);
+    transform: translate(-2px, -2px);
+}
+
+/* Títols amb efecte "glitch" estàtic */
+h1, h2, h3 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-shadow: 3px 3px 0 var(--color-accent-dim);
+    border-bottom: 4px solid var(--color-accent);
+    display: inline-block;
+    padding-right: 20px;
+    transform: rotate(-1deg);
+}
+
+/* --- Header / Hero --- */
+header {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    background-color: #050505;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(178, 75, 243, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 85% 15%, rgba(122, 42, 171, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 15% 85%, rgba(122, 42, 171, 0.2) 0%, transparent 40%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+    background-size: cover, cover, cover, 300px 300px;
+    z-index: 0;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(10,10,10,1) 100%);
+    z-index: 1;
+}
+
+header > * {
+    position: relative;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 0.9;
+    margin-bottom: 1rem;
+}
+
+header h1 span {
+    display: block;
+    color: var(--color-accent);
+}
+
+.hero-meta {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px dashed var(--color-accent);
+    padding: 10px;
+    transform: rotate(1deg);
+}
+
+/* --- Nav --- */
+nav {
+    position: sticky;
+    top: 0;
+    background: var(--color-black);
+    border-bottom: 2px solid var(--color-accent);
+    z-index: 100;
+    padding: 1rem 0;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+nav a:hover { color: var(--color-accent); }
+
+.lang-switch {
+    display: flex;
+    gap: 10px;
+    font-size: 0.9rem;
+    margin-left: 20px;
+}
+.lang-switch button {
+    background: none;
+    border: 1px solid var(--color-accent);
+    color: var(--color-text);
+    padding: 2px 5px;
+    cursor: pointer;
+    font-family: var(--font-body);
+}
+.lang-switch button.active {
+    background: var(--color-accent);
+    color: var(--color-black);
+}
+
+/* --- Sections Generics --- */
+section {
+    padding: 4rem 0;
+    position: relative;
+}
+
+/* Separadors estil paper estripat */
+.torn-separator {
+    height: 30px;
+    background: var(--color-accent);
+    clip-path: polygon(0% 10%, 5% 80%, 10% 10%, 15% 90%, 20% 10%, 25% 80%, 30% 10%, 35% 90%, 40% 10%, 45% 80%, 50% 10%, 55% 90%, 60% 10%, 65% 80%, 70% 10%, 75% 90%, 80% 10%, 85% 90%, 90% 10%, 95% 80%, 100% 10%, 100% 100%, 0% 100%);
+    margin-bottom: 3rem; /* fix subpixel rendering */
+}
+
+/* --- Line Up / Concerts --- */
+.band-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.band-card {
+    background: #111;
+    border: 1px solid #333;
+    padding: 1rem;
+    position: relative;
+    transition: 0.3s;
+}
+
+.band-card:hover {
+    border-color: var(--color-accent);
+}
+
+.band-img {
+    width: 100%;
+    height: 300px;
+    background-color: #333;
+    margin-bottom: 1rem;
+    filter: grayscale(100%) contrast(120%);
+    transition: 0.3s;
+    object-fit: cover;
+    object-position: top;
+}
+
+.band-card:hover .band-img {
+    filter: grayscale(0%) contrast(100%);
+}
+
+/* --- Voluntariat --- */
+#voluntaris {
+    background-color: var(--color-paper);
+    color: var(--color-black);
+    clip-path: polygon(0 2%, 100% 0, 100% 98%, 0 100%); /* Lleuger angle */
+    padding: 5rem 0;
+}
+
+#voluntaris h2 {
+    border-color: var(--color-black);
+    text-shadow: none;
+}
+
+.roles-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 2rem 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.roles-list span {
+    background: var(--color-black);
+    color: var(--color-paper);
+    padding: 5px 15px;
+    transform: rotate(-2deg);
+}
+.roles-list span:nth-child(even) { transform: rotate(2deg); }
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 3rem;
+    border-top: 1px solid #333;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    background: #000;
+}
+
+footer a { color: var(--color-accent); text-decoration: underline; }
+footer a:hover { color: #fff; }
+
+/* Helpers */
+.text-center { text-align: center; }
+.mb-2 { margin-bottom: 2rem; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    nav .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .lang-switch { margin-left: 0; }
+}
