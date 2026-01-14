@@ -88,8 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (langParam && translations[langParam]) {
         setLang(langParam);
     } else {
-        // Default to Catalan if no param or invalid
-        setLang('ca');
+        // Default to Spanish if no param or invalid
+        setLang('es');
     }
 });
 

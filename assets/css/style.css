@@ -89,10 +89,27 @@ header {
     text-align: center;
     padding: 2rem;
     position: relative;
-    background-color: #050505;
-    overflow: hidden;
+    overflow: hidden; /* Important per si la imatge es mou */
+
+    /* MÀGIA CSS AQUÍ: */
+    background-color: #000; /* Color de base */
+    background-image: 
+        /* Capa 1: Un degradat lila semitransparent per sobre */
+        linear-gradient(to bottom, rgba(178, 75, 243, 0.4) 0%, rgba(0, 0, 0, 0.9) 80%),
+        /* Capa 2: La teva imatge "punk/feminista" (POSA LA TEVA URL AQUÍ) */
+        url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+    
+    background-size: cover;
+    background-position: center center;
+    /* Això fusiona la imatge amb el negre i el lila, donant un look de serigrafia fosca */
+    background-blend-mode: hard-light; 
 }
 
+/* Opcional: Un efecte parallax molt subtil només amb CSS */
+header:hover {
+    background-position: center 48%; /*petit moviment al passar el ratolí*/
+    transition: background-position 0.5s ease-out;
+}
 header::before {
     content: "";
     position: absolute;
@@ -275,7 +292,7 @@ footer {
     background: #000;
 }
 
-footer a { color: var(--color-accent); text-decoration: underline; }
+footer a { color: var(--color-paper); text-decoration: underline; }
 footer a:hover { color: #fff; }
 
 /* Helpers */
