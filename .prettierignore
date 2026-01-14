@@ -1,0 +1,14 @@
+# Ignore artifacts:
+build
+coverage
+node_modules
+
+# Ignore all minified files
+dist/**/*.min.js
+
+# Ignore specific file types
+*.lock
+*.log
+
+# Ignore specific directories
+logs

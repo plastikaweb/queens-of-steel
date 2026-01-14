@@ -97,19 +97,22 @@ header {
         /* Capa 1: Un degradat lila semitransparent per sobre */
         linear-gradient(to bottom, rgba(178, 75, 243, 0.4) 0%, rgba(0, 0, 0, 0.9) 80%),
         /* Capa 2: La teva imatge "punk/feminista" (POSA LA TEVA URL AQUÍ) */
-        url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+        url('../img/hero-background.jpg'); 
     
     background-size: cover;
     background-position: center center;
     /* Això fusiona la imatge amb el negre i el lila, donant un look de serigrafia fosca */
     background-blend-mode: hard-light; 
+    
+    /* Aplicant filtres animats per canviar la tonalitat */
+    animation: hero-tonality 8s infinite alternate ease-in-out;
 }
 
-/* Opcional: Un efecte parallax molt subtil només amb CSS */
-header:hover {
-    background-position: center 48%; /*petit moviment al passar el ratolí*/
-    transition: background-position 0.5s ease-out;
-}
+/* Opcional: Un efecte parallax molt subtil només amb CSS - Desactivat per no conflicte amb animació */
+/* header:hover {
+    background-position: center 48%; 
+    transition: background-position 0.5s ease-out; 
+} */
 header::before {
     content: "";
     position: absolute;
@@ -121,6 +124,7 @@ header::before {
         url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
     background-size: cover, cover, cover, 300px 300px;
     z-index: 0;
+    animation: lights-pulse 6s infinite alternate ease-in-out;
 }
 
 header::after {
@@ -136,10 +140,29 @@ header > * {
     z-index: 2;
 }
 
+@keyframes hero-tonality {
+    0% { 
+        filter: hue-rotate(0deg) saturate(100%) brightness(100%);
+    }
+    50% { 
+        filter: hue-rotate(15deg) saturate(120%) brightness(105%);
+    }
+    100% { 
+        filter: hue-rotate(0deg) saturate(90%) brightness(95%);
+    }
+}
+
+@keyframes lights-pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
 header h1 {
     font-size: clamp(3rem, 10vw, 8rem);
     line-height: 0.9;
     margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(178, 75, 243, 0.5); /* Slight glow for text too */
 }
 
 header h1 span {
@@ -274,13 +297,13 @@ section {
     font-weight: bold;
 }
 
-.roles-list span {
+.roles-list li {
     background: var(--color-black);
     color: var(--color-paper);
     padding: 5px 15px;
     transform: rotate(-2deg);
 }
-.roles-list span:nth-child(even) { transform: rotate(2deg); }
+.roles-list li:nth-child(even) { transform: rotate(2deg); }
 
 /* --- Footer --- */
 footer {
