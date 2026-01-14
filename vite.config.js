@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/',
+  base: '/queens-of-steel/',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
