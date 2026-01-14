@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
-export default defineConfig({
-  base: '/queens-of-steel/',
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/queens-of-steel/' : '/',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
@@ -25,4 +25,4 @@ export default defineConfig({
     },
   },
   publicDir: 'public',
-});
+}));
