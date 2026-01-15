@@ -50,25 +50,24 @@
             </ul>
              <div class="lang-switch-mobile">
                <!-- Mobile lang switch triggers same functions -->
-              <button onclick="setLang('es')" class="btn-es-mob active">ES</button>
-              <button onclick="setLang('ca')" class="btn-ca-mob">CA</button>
-              <button onclick="setLang('en')" class="btn-en-mob">EN</button>
+              <button class="btn-es-mob active">ES</button>
+              <button class="btn-ca-mob">CA</button>
+              <button class="btn-en-mob">EN</button>
             </div>
           </div>
         </div>
         
         <div class="lang-switch desktop-only">
           <button
-            onclick="setLang('es')"
             id="btn-es"
             class="active"
             aria-label="Cambiar idioma a Español">
             ES
           </button>
-          <button onclick="setLang('ca')" id="btn-ca" aria-label="Canviar idioma a Català">
+          <button id="btn-ca" aria-label="Canviar idioma a Català">
             CA
           </button>
-          <button onclick="setLang('en')" id="btn-en" aria-label="Switch language to English">
+          <button id="btn-en" aria-label="Switch language to English">
             EN
           </button>
         </div>
@@ -615,6 +614,6 @@
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""></script>
-    <script src="/js/script.js" defer></script>
+    <script type="module" src="/js/script.js"></script>
   </body>
 </html>

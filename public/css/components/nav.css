@@ -233,6 +233,24 @@ nav a:hover {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     backdrop-filter: blur(5px);
+    overflow-y: auto; /* Enable scrolling */
+    justify-content: flex-start; /* Prevent clipping at top when content overflows */
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) var(--color-bg);
+  }
+
+  .nav-menu::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .nav-menu::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+
+  .nav-menu::-webkit-scrollbar-thumb {
+    background-color: var(--color-accent);
+    border-radius: 3px;
   }
 
   .nav-menu.is-active {
@@ -244,6 +262,9 @@ nav a:hover {
     flex-direction: column;
     gap: 2rem;
     text-align: center;
+    margin: auto; /* Vertically center if space allows */
+    padding: 2rem 0; /* Ensure padding when scrolling */
+    width: 100%;
   }
 
   nav ul li a {
@@ -255,7 +276,8 @@ nav a:hover {
   .lang-switch-mobile {
     display: flex !important;
     gap: 15px;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     justify-content: center;
   }
 
