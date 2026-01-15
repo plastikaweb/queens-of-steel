@@ -1,0 +1,33 @@
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 3rem;
+  border-top: 1px solid #333;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  background: #000;
+}
+
+footer a {
+  color: var(--color-paper);
+  text-decoration: underline;
+}
+footer a:hover {
+  color: #fff;
+}
+
+.footer-credits-wrapper {
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.footer-opensource {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+}
+
+.footer-opensource a {
+  text-decoration: underline;
+  color: var(--color-paper);
+}

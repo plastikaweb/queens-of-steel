@@ -1,0 +1,131 @@
+/* --- Cards (Bands, Mercadillo, Info) --- */
+
+/* Info Item (Hero) */
+.info-item {
+  border: 1px dashed var(--color-accent);
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-item:hover {
+  background: rgba(178, 75, 243, 0.1);
+  border-style: solid;
+}
+
+.info-item h3 {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.info-item p {
+  font-family: var(--font-body);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Common Band/Mercadillo Link Styles */
+.band-external-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.external-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--color-accent);
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  background: rgba(178, 75, 243, 0.1);
+}
+
+.external-link:hover {
+  border-color: var(--color-accent);
+  background: rgba(178, 75, 243, 0.2);
+  transform: translateY(-2px);
+}
+
+.external-link svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Band Card */
+.band-card {
+  background: #111;
+  border: 1px solid #333;
+  padding: 1rem;
+  position: relative;
+  transition: 0.3s;
+}
+
+.band-card:hover {
+  border-color: var(--color-accent);
+}
+
+.band-img {
+  width: 100%;
+  height: 400px;
+  background-color: #333;
+  margin-bottom: 1rem;
+  filter: grayscale(100%) contrast(120%);
+  transition: 0.3s;
+  object-fit: cover;
+  object-position: top;
+}
+
+.band-card:hover .band-img {
+  filter: grayscale(0%) contrast(100%);
+}
+
+/* Mercadillo Card */
+.mercadillo-card {
+  background: #111;
+  border: 1px solid #333;
+  padding: 0.5rem;
+  position: relative;
+  transition: 0.3s;
+}
+
+.mercadillo-card:hover {
+  border-color: var(--color-accent);
+}
+
+.mercadillo-img {
+  width: 100%;
+  height: 300px;
+  background-color: transparent;
+  margin-bottom: 0.5rem;
+  filter: grayscale(100%) contrast(120%);
+  transition: 0.3s;
+  object-fit: cover;
+  object-position: top;
+}
+
+.mercadillo-card:hover .mercadillo-img {
+  filter: grayscale(0%) contrast(100%);
+}
+
+.mercadillo-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+.mercadillo-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
