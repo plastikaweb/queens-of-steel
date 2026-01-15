@@ -29,16 +29,17 @@ The festival features five all-women bands representing different styles of extr
 
 ## 🛠️ Activities
 
-- **Gutural Workshop** - Extreme vocal technique workshop with Laia from Saton
-- **Women and Black Metal** - Roundtable discussion about female presence in the extreme music scene
+- **Metal Against Fascism** - A conversation about history, resistance, and activism within the extreme scene.
+- **Feminist Market (Mercadillo DIY)** - Featuring independent distribution, crafts, jewelry, and illustration. 
 
 ## 🌐 Website Features
 
-### Bilingual Support (ES/CA)
+### Multilingual Support (ES/CA/EN)
+
 The site is fully bilingual, supporting Spanish and Catalan. It uses a custom JavaScript implementation that:
 
 - Switches content dynamically using `data-key` attributes.
-- Persists language selection via URL parameters (`?lang=es` or `?lang=ca`).
+- Persists language selection via URL parameters (`?lang=en`, `?lang=es`, or `?lang=ca`).
 - Automatically detects the user's preferred language.
 
 ### Modern UX & Animations
