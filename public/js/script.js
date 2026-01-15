@@ -43,7 +43,15 @@ const translations = {
         susana_desc: "Il·lustradora i editora de fanzines enfocada en l'imaginari psycho-heavy i la gràfica musical, amb un fort component reivindicatiu.",
         flamigera_desc: "Projecte de roba intervinguda a mà i serigrafia que recrea l'imaginari de bandes de metall i punk sota un estil propi.",
         impia_desc: "Dbeat cru i metal·litzat",
-        footer_credits: "Web feta per"
+        footer_credits: "Web feta per",
+        title_home: "Queens of Steel Fest 2026",
+        title_20years: "20 Anys | Queens of Steel Fest",
+        title_concerts: "Line Up | Queens of Steel Fest",
+        title_mercadillo: "Mercadet | Queens of Steel Fest",
+        title_activities: "Activitats | Queens of Steel Fest",
+        title_participate: "Participa | Queens of Steel Fest",
+        title_location: "Ubicació | Queens of Steel Fest",
+        meta_description: "Queens of Steel Fest 2026. 20 anys de soroll i resistència. Festival de metall, punk i hardcore a Barcelona. 7 de Març."
     },
     es: {
         date: "7 DE MARZO",
@@ -89,7 +97,15 @@ const translations = {
         susana_desc: "Ilustradora y editora de fanzines enfocada en el imaginario psycho-heavy y la gráfica musical, con un fuerte componente reivindicativo.",
         flamigera_desc: "Proyecto de ropa intervenida a mano y serigrafía que recrea el imaginario de bandas de metal y punk bajo un estilo propio.",
         impia_desc: "Dbeat crudo y metalizado",
-        footer_credits: "Web hecha por"
+        footer_credits: "Web hecha por",
+        title_home: "Queens of Steel Fest 2026",
+        title_20years: "20 Años | Queens of Steel Fest",
+        title_concerts: "Line Up | Queens of Steel Fest",
+        title_mercadillo: "Mercadillo | Queens of Steel Fest",
+        title_activities: "Actividades | Queens of Steel Fest",
+        title_participate: "Participa | Queens of Steel Fest",
+        title_location: "Ubicación | Queens of Steel Fest",
+        meta_description: "Queens of Steel Fest 2026. 20 años de ruido y resistencia. Festival de metal, punk y hardcore en Barcelona. 7 de Marzo."
     },
     en: {
         date: "MARCH 7TH",
@@ -135,9 +151,39 @@ const translations = {
         location_title: "WHERE IS IT?",
         footer_design: "Designed for the Cause. Self-management always.",
         impia_desc: "Raw and metallic Dbeat",
-        footer_credits: "Website by"
+        footer_credits: "Website by",
+        title_home: "Queens of Steel Fest 2026",
+        title_20years: "20 Years | Queens of Steel Fest",
+        title_concerts: "Line Up | Queens of Steel Fest",
+        title_mercadillo: "Market | Queens of Steel Fest",
+        title_activities: "Activities | Queens of Steel Fest",
+        title_participate: "Participate | Queens of Steel Fest",
+        title_location: "Location | Queens of Steel Fest",
+        meta_description: "Queens of Steel Fest 2026. 20 years of noise and resistance. Metal, punk and hardcore festival in Barcelona. March 7th."
     }
 };
+
+let currentSection = 'home';
+
+function updateTitle(lang) {
+    if (!translations[lang]) return;
+    
+    // Map sections to title keys
+    const titleMap = {
+        'home': 'title_home',
+        '20-anys': 'title_20years',
+        'concerts': 'title_concerts',
+        'mercadet': 'title_mercadillo',
+        'activitats': 'title_activities',
+        'voluntaris': 'title_participate',
+        'ubicacio': 'title_location'
+    };
+
+    const titleKey = titleMap[currentSection] || 'title_home';
+    if (translations[lang][titleKey]) {
+        document.title = translations[lang][titleKey];
+    }
+}
 
 function setLang(lang) {
     if (!translations[lang]) return;
@@ -158,6 +204,15 @@ function setLang(lang) {
         }
     });
 
+// Update titles on language change
+    updateTitle(lang);
+
+    // Update meta description
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && translations[lang].meta_description) {
+        metaDesc.setAttribute('content', translations[lang].meta_description);
+    }
+
     // Update URL without reloading
     const newUrl = new URL(window.location);
     newUrl.searchParams.set('lang', lang);
@@ -168,13 +223,41 @@ function setLang(lang) {
 document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const langParam = params.get('lang');
+    let currentLang = 'es'; // Default
     
     if (langParam && translations[langParam]) {
-        setLang(langParam);
-    } else {
-        // Default to Spanish if no param or invalid
-        setLang('es');
+        currentLang = langParam;
     }
+    
+    setLang(currentLang);
+
+    // Dynamic Title Observer
+    const sections = document.querySelectorAll('section, header');
+    const titleObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Map ID to section key logic
+                const id = entry.target.id;
+                // Special handling for header (id="inici") mapping to 'home'
+                // and sections mapping to their IDs or simplified versions
+                if (id === 'inici') currentSection = 'home';
+                else if (id === 'mercadet') currentSection = 'mercadet';
+                else if (id === 'activitats') currentSection = 'activitats';
+                else if (id === 'voluntaris') currentSection = 'voluntaris';
+                else if (id === 'ubicacio') currentSection = 'ubicacio';
+                else if (id === '20-anys') currentSection = '20-anys';
+                else if (id === 'concerts') currentSection = 'concerts';
+                
+                updateTitle(document.documentElement.lang);
+            }
+        });
+    }, {
+        threshold: 0.51 // Trigger when more than half visible
+    });
+
+    sections.forEach(section => {
+        titleObserver.observe(section);
+    });
 });
 
 // El smooth scroll es gestiona nativament per CSS (scroll-behavior: smooth)
@@ -191,7 +274,7 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 // Aplica l'animació a les cards
-document.querySelectorAll('.band-card').forEach((el) => {
+document.querySelectorAll('.band-card, .mercadillo-card').forEach((el) => {
     el.style.opacity = 0;
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'all 0.6s ease-out';
