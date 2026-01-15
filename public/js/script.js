@@ -31,7 +31,17 @@ const translations = {
         role_transport: "TRANSPORT",
         write_us: "ESCRIU-NOS",
         location_title: "ON ÉS?",
-        footer_design: "Dissenyat per la Causa. Autogestió sempre."
+        footer_design: "Dissenyat per la Causa. Autogestió sempre.",
+        nav_mercadillo: "MERCADET",
+        mercadillo_title: "MERCADET FEMINISTA",
+        mercadillo_intro: "17:00h | OBERTURA I MERCADET DIY Distribució i artesania amb:",
+        maldo_desc: "Projecte gràfic de Marta Maldonado (Maldo) centrat en el món editorial i musical. A través de l'oli i la tinta, fusiona natura, mitologia, metall i foscor.",
+        ultrachains_desc: "Des de Madrid arriba aquest projecte de joieria artesanal en acer inoxidable. Peces de cota de malla inspirades en l'estètica punk i creades a mà.",
+        mda_desc: "Col·lectiu que munta concerts de punk, xerrades i distribueix materials sota la bandera de l'autogestió. Bons llibres, fanzines i música.",
+        corv_desc: "Projecte que aposta per l'autogestió i el reciclatge creatiu. Des de pegats serigrafiats fins a accessoris amb materials recuperats.",
+        marica_desc: "Il·lustració i tatuatge que explora i qüestiona els sistemes d'opressió, visibilitzant formes de resistència. Personatges emancipats i desafiants.",
+        susana_desc: "Il·lustradora i editora de fanzines enfocada en l'imaginari psycho-heavy i la gràfica musical, amb un fort component reivindicatiu.",
+        flamigera_desc: "Projecte de roba intervinguda a mà i serigrafia que recrea l'imaginari de bandes de metall i punk sota un estil propi."
     },
     es: {
         date: "7 DE MARZO",
@@ -65,7 +75,17 @@ const translations = {
         role_transport: "TRANSPORTE",
         write_us: "ESCRÍBENOS",
         location_title: "¿DÓNDE ES?",
-        footer_design: "Diseñado por la Causa. Autogestión siempre."
+        footer_design: "Diseñado por la Causa. Autogestión siempre.",
+        nav_mercadillo: "MERCADILLO",
+        mercadillo_title: "MERCADILLO FEMINISTA",
+        mercadillo_intro: "17:00h | APERTURA Y MERCADILLO DIY Distribución y artesanía con:",
+        maldo_desc: "Proyecto gráfico de Marta Maldonado (Maldo) centrado en el mundo editorial y musical. A través del óleo y la tinta, fusiona naturaleza, mitología, metal y oscuridad.",
+        ultrachains_desc: "Desde Madrid llega este proyecto de joyería artesanal en acero inoxidable. Piezas de cota de malla inspiradas en la estética punk y creadas a mano.",
+        mda_desc: "Colectivo que monta conciertos de punk, charlas y distribuye materiales bajo la bandera de la autogestión. Buenos libros, fanzines y música.",
+        corv_desc: "Proyecto que apuesta por la autogestión y el reciclaje creativo. Desde parches serigrafiados hasta accesorios con materiales recuperados.",
+        marica_desc: "Ilustración y tatuaje que explora y cuestiona los sistemas de opresión, visibilizando formas de resistencia. Personajes emancipadxs y desafiantes.",
+        susana_desc: "Ilustradora y editora de fanzines enfocada en el imaginario psycho-heavy y la gráfica musical, con un fuerte componente reivindicativo.",
+        flamigera_desc: "Proyecto de ropa intervenida a mano y serigrafía que recrea el imaginario de bandas de metal y punk bajo un estilo propio."
     }
 };
 
