@@ -205,7 +205,7 @@ header h1 span {
     border-style: solid;
 }
 
-.info-item h4 {
+.info-item h3 {
     color: var(--color-accent);
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
