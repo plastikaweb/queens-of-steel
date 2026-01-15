@@ -16,7 +16,7 @@ const translations = {
         noise_title: "20 ANYS DE SOROLL I RESISTÈNCIA",
         noise_desc: "Dues dècades demostrant que el metall no té gènere. La nostra veu és gutural, la nostra presència inesborrable. Contra el patriarcat, volum al màxim. Som les reines de l'acer i hem vingut a fer tremolar els fonaments.",
         activities_title: "ACTIVITATS",
-        act_fascismo_title: "METAL FRENTE AL FASCISMO",
+        act_fascismo_title: "METALL ENFRONT DEL FEIXISME",
         act_fascismo_desc: "Un conversatori sobre la història, la resistència i l'activisme dins l'escena extrema.",
         act_fascismo_speakers_title: "Un conversatori amb:",
         act_fascismo_speakers: "Raquel García<br><small>(fotògrafa i fundadora de Rockin' Ladies)</small><br>Emilio Casal<br><small>(Bocc, Tugurio i Veratre)</small><br>i dinamitzada per Sol",
