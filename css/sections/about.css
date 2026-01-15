@@ -1,0 +1,6 @@
+/* --- About / 20 Years Section --- */
+.intro-text {
+  font-size: 1.2rem;
+  border-left: 4px solid var(--color-accent);
+  padding-left: 20px;
+}

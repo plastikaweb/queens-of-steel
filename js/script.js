@@ -230,10 +230,19 @@ function setLang(lang) {
   document.documentElement.lang = lang;
 
   // Update buttons
+  // Update buttons (Desktop)
   document.querySelectorAll('.lang-switch button').forEach(btn => {
     btn.classList.remove('active');
   });
-  document.getElementById('btn-' + lang).classList.add('active');
+  const desktopBtn = document.getElementById('btn-' + lang);
+  if (desktopBtn) desktopBtn.classList.add('active');
+
+  // Update buttons (Mobile)
+  document.querySelectorAll('.lang-switch-mobile button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  const mobileBtnClass = 'btn-' + lang + '-mob';
+  document.querySelectorAll('.' + mobileBtnClass).forEach(btn => btn.classList.add('active'));
 
   // Update text content
   document.querySelectorAll('[data-key]').forEach(el => {
@@ -339,5 +348,38 @@ function initMap() {
     .openPopup();
 }
 
-// Inicialitza el mapa quan el contingut s'ha carregat
-document.addEventListener('DOMContentLoaded', initMap);
+// Mobile Menu Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+  
+    if (hamburger && navMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('is-active');
+        navMenu.classList.toggle('is-active');
+        
+        // Toggle body scroll lock
+        if (navMenu.classList.contains('is-active')) {
+            document.body.style.overflow = 'hidden';
+            hamburger.setAttribute('aria-expanded', 'true');
+        } else {
+            document.body.style.overflow = '';
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+  
+      // Close menu when a link is clicked
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('is-active');
+          navMenu.classList.remove('is-active');
+          document.body.style.overflow = '';
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  });
+  
+  // Inicialitza el mapa quan el contingut s'ha carregat
+  document.addEventListener('DOMContentLoaded', initMap);

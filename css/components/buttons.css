@@ -1,0 +1,21 @@
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  background: var(--color-accent);
+  color: var(--color-black);
+  padding: 10px 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid var(--color-accent);
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--color-accent);
+  box-shadow: 4px 4px 0 var(--color-accent);
+  transform: translate(-2px, -2px);
+}
