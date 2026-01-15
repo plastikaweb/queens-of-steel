@@ -23,8 +23,8 @@
   width: 100%;
   height: auto;
   display: block;
-  border: 2px solid var(--color-accent);
-  box-shadow: 10px 10px 0 rgba(178, 75, 243, 0.2);
+  mix-blend-mode: screen;
+  filter: invert(1) grayscale(1);
 }
 
 .activity-content {
