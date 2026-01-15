@@ -27,19 +27,37 @@
     <nav>
       <div class="container">
         <div class="nav-main">
+          
           <a href="#inici" class="nav-logo">
             <img src="/img/q-logo.png" alt="Queens of Steel" />
+            <span>Queens of Steel</span>
           </a>
-          <ul>
-            <li><a href="#20-anys" data-key="nav_20years">20 AÑOS</a></li>
-            <li><a href="#concerts" data-key="nav_concerts">LINE UP</a></li>
-            <li><a href="#mercadet" data-key="nav_mercadillo">MERCADILLO</a></li>
-            <li><a href="#activitats" data-key="nav_activities">ACTIVIDADES</a></li>
-            <li><a href="#voluntaris" data-key="nav_participate">PARTICIPA</a></li>
-            <li><a href="#ubicacio" data-key="nav_location">UBICACIÓN</a></li>
-          </ul>
+          
+          <button class="hamburger" aria-label="Menu" aria-expanded="false">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>
+          
+          <div class="nav-menu">
+            <ul>
+              <li><a href="#20-anys" data-key="nav_20years">20 AÑOS</a></li>
+              <li><a href="#concerts" data-key="nav_concerts">LINE UP</a></li>
+              <li><a href="#mercadet" data-key="nav_mercadillo">MERCADILLO</a></li>
+              <li><a href="#activitats" data-key="nav_activities">ACTIVIDADES</a></li>
+              <li><a href="#voluntaris" data-key="nav_participate">PARTICIPA</a></li>
+              <li><a href="#ubicacio" data-key="nav_location">UBICACIÓN</a></li>
+            </ul>
+             <div class="lang-switch-mobile">
+               <!-- Mobile lang switch triggers same functions -->
+              <button onclick="setLang('es')" class="btn-es-mob active">ES</button>
+              <button onclick="setLang('ca')" class="btn-ca-mob">CA</button>
+              <button onclick="setLang('en')" class="btn-en-mob">EN</button>
+            </div>
+          </div>
         </div>
-        <div class="lang-switch">
+        
+        <div class="lang-switch desktop-only">
           <button
             onclick="setLang('es')"
             id="btn-es"
