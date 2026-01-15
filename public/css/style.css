@@ -275,6 +275,38 @@ section {
     filter: grayscale(0%) contrast(100%);
 }
 
+.band-external-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.external-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--color-accent);
+    padding: 4px 8px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    background: rgba(178, 75, 243, 0.1);
+}
+
+.external-link:hover {
+    border-color: var(--color-accent);
+    background: rgba(178, 75, 243, 0.2);
+    transform: translateY(-2px);
+}
+
+.external-link svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
 /* --- Voluntariat --- */
 #voluntaris {
     background-color: var(--color-paper);
