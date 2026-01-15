@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -197,10 +198,10 @@
         <div class="torn-separator"></div>
 
         <h2 data-key="location_title">¿DÓNDE ES?</h2>
-        <p class="mb-2">Carrer del Soroll, 666, Barcelona</p>
+        <p class="mb-2">Palau Alòs, c/ Sant Pere Més Baix 55, 08003 Barcelona</p>
         
         <div style="width: 100%; height: 300px; background: #222; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-accent);">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.433999999999!2d2.173403!3d41.385063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f2605f6213%3A0x19741639!2sBarcelona!5e0!3m2!1ses!2ses!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de ubicación"></iframe>
+            <div id="map" style="width: 100%; height: 100%;"></div>
         </div>
     </section>
 
@@ -215,6 +216,7 @@
         <p>&copy; 2026 QUEENS OF STEEL | <a href="http://www.queensofsteel.com/" target="_blank" rel="noopener">queensofsteel.com</a></p>
         <p><span data-key="footer_design">Diseñado por la Causa. Autogestión siempre.</span> <br> <span style="font-size: 0.9em; opacity: 0.8;">Web feta per <a href="https://www.plastikaweb.com" target="_blank" rel="noopener">Plastikaweb</a></span></p>
     </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="/js/script.js" defer></script>
 </body>
 </html>

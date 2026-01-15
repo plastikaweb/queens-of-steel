@@ -14,7 +14,7 @@ Queens of Steel Fest is a Barcelona-based festival celebrating two decades of de
 - **Time:** 17:00h  
 - **Price:** Taquilla inversa (Recommended donation 5€)  
 - **Extras:** Vegan food and drinks at popular prices  
-- **Location:** Carrer del Soroll, 666, Barcelona  
+- **Location:** Palau Alòs, c/ Sant Pere Més Baix 55, 08003 Barcelona  
 - **Website:** [www.queensfest.org](https://www.queensfest.org)
 
 ## 🎤 Line-Up

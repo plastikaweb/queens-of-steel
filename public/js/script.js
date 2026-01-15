@@ -127,3 +127,20 @@ document.querySelectorAll('.band-card').forEach((el) => {
     el.style.transition = 'all 0.6s ease-out';
     observer.observe(el);
 });
+
+// Inicialització del mapa Leaflet
+function initMap() {
+    const palauAlosCoords = [41.384261, 2.178873];
+    const map = L.map('map').setView(palauAlosCoords, 17);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker(palauAlosCoords).addTo(map)
+        .bindPopup('<b>Palau Alòs</b><br>c/ Sant Pere Més Baix 55, 08003 Barcelona')
+        .openPopup();
+}
+
+// Inicialitza el mapa quan el contingut s'ha carregat
+document.addEventListener('DOMContentLoaded', initMap);
