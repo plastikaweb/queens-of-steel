@@ -5,7 +5,6 @@ let currentSection = 'home';
 function updateTitle(lang) {
   if (!translations[lang]) return;
 
-  // Map sections to title keys
   const titleMap = {
     home: 'title_home',
     '20-anys': 'title_20years',
@@ -27,7 +26,6 @@ function setLang(lang) {
 
   document.documentElement.lang = lang;
 
-  // Update buttons (Desktop and Mobile)
   const allButtons = document.querySelectorAll('.lang-switch button, .lang-switch-mobile button');
   allButtons.forEach(btn => {
     btn.classList.remove('active');
@@ -55,22 +53,16 @@ function setLang(lang) {
     }
   });
 
-  // Update titles on language change
   updateTitle(lang);
-
-  // Update meta description
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc && translations[lang].meta_description) {
     metaDesc.setAttribute('content', translations[lang].meta_description);
   }
-
-  // Update URL without reloading
   const newUrl = new URL(window.location);
   newUrl.searchParams.set('lang', lang);
   window.history.pushState({}, '', newUrl);
 }
 
-// Mobile Menu Logic
 function initMobileMenu() {
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.nav-menu');
@@ -106,7 +98,6 @@ function initMobileMenu() {
   }
 }
 
-// Initialize Language Switcher Listeners
 function initLanguageSwitcher() {
   const langButtons = document.querySelectorAll('.lang-switch button, .lang-switch-mobile button');
   
@@ -140,7 +131,6 @@ function initLanguageSwitcher() {
   });
 }
 
-// Initialize Map
 function initMap() {
   const mapElement = document.getElementById('map');
   if (!mapElement) return;
@@ -158,19 +148,10 @@ function initMap() {
     .bindPopup('<b>Palau Alòs</b><br>c/ Sant Pere Més Baix 55, 08003 Barcelona')
     .openPopup();
 }
-
-// Main Initialization
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Menu
   initMobileMenu();
-
-  // Language Switcher
   initLanguageSwitcher();
-
-  // Map
   initMap();
-
-  // Initial Language Setup
   const params = new URLSearchParams(window.location.search);
   const langParam = params.get('lang');
   let currentLang = 'es'; // Default

@@ -8,30 +8,20 @@ header {
   text-align: center;
   padding: 2rem;
   position: relative;
-  overflow: hidden; /* Important per si la imatge es mou */
+  overflow: hidden;
 
-  /* MÀGIA CSS AQUÍ: */
-  background-color: #000; /* Color de base */
+  background-color: #000;
   background-image: 
-        /* Capa 1: Un degradat lila semitransparent per sobre */
     linear-gradient(to bottom, rgba(178, 75, 243, 0.4) 0%, rgba(0, 0, 0, 0.9) 80%),
-    /* Capa 2: La teva imatge "punk/feminista" (POSA LA TEVA URL AQUÍ) */
     url('/img/hero-background.jpg');
 
   background-size: cover;
   background-position: center center;
-  /* Això fusiona la imatge amb el negre i el lila, donant un look de serigrafia fosca */
   background-blend-mode: hard-light;
 
-  /* Aplicant filtres animats per canviar la tonalitat */
   animation: hero-tonality 8s infinite alternate ease-in-out;
 }
 
-/* Opcional: Un efecte parallax molt subtil només amb CSS - Desactivat per no conflicte amb animació */
-/* header:hover {
-    background-position: center 48%; 
-    transition: background-position 0.5s ease-out; 
-} */
 header::before {
   content: '';
   position: absolute;

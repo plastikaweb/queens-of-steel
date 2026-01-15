@@ -1,6 +1,6 @@
 # Queens of Steel Fest 2026
 
-**20 años de ruido y resistencia** | **20 anys de soroll i resistència**
+**20 Years of Noise and Resistance** | **20 Anys de Soroll i Resistència**
 
 Official website for Queens of Steel Fest 2026, celebrating 20 years of women in metal, punk, and hardcore music in Barcelona.
 
@@ -10,11 +10,11 @@ Queens of Steel Fest is a Barcelona-based festival celebrating two decades of de
 
 ### Event Details
 
-- **Date:** March 7, 2026 (07/03/2026)  
-- **Time:** 17:00h  
-- **Price:** Taquilla inversa (Recommended donation 5€)  
-- **Extras:** Vegan food and drinks at popular prices  
-- **Location:** Palau Alòs, c/ Sant Pere Més Baix 55, 08003 Barcelona  
+- **Date:** March 7, 2026 (07/03/2026)
+- **Time:** 17:00h
+- **Price:** Reverse Box Office / Voluntary Donation (Recommended 5€)
+- **Extras:** Vegan food and drinks at popular prices
+- **Location:** Palau Alòs, c/ Sant Pere Més Baix 55, 08003 Barcelona
 - **Website:** [www.queensfest.org](https://www.queensfest.org)
 
 ## 🎤 Line-Up
@@ -25,35 +25,37 @@ The festival features five all-women bands representing different styles of extr
 - **SACROSANCTA DECADENCIA OCCIDENTAL** - Stench/Crust/Death
 - **SAYÓN** - Stenchcore/crust
 - **MATER TENEBRARUM** - Doom goth
-- **IMPÍA** - Dbeat crudo y metalizado
+- **IMPÍA** - Raw D-beat / Metallic Punk
 
 ## 🛠️ Activities
 
 - **Metal Against Fascism** - A conversation about history, resistance, and activism within the extreme scene.
-- **Feminist Market (Mercadillo DIY)** - Featuring independent distribution, crafts, jewelry, and illustration. 
+- **Feminist Market (Mercadillo DIY)** - Featuring independent distribution, crafts, jewelry, and illustration.
 
 ## 🌐 Website Features
 
 ### Multilingual Support (ES/CA/EN)
 
-The site is fully bilingual, supporting Spanish and Catalan. It uses a custom JavaScript implementation that:
+The site is fully bilingual/trilingual, supporting Spanish, Catalan, and English. It uses a custom JavaScript implementation (`public/js/translations.js`) that:
 
 - Switches content dynamically using `data-key` attributes.
 - Persists language selection via URL parameters (`?lang=en`, `?lang=es`, or `?lang=ca`).
-- Automatically detects the user's preferred language.
+- Automatically detects the user's preferred language on first load.
+- Updates page title, meta descriptions, and ARIA attributes for accessibility.
 
 ### Modern UX & Animations
 
 - **Reveal on Scroll:** Band cards and sections smoothly fade and slide into view as the user scrolls.
-- **Smooth Navigation:** Internal links use smooth-scroll behavior for a premium feel.
+- **Smooth Navigation:** Internal links use smooth-scroll behavior.
 - **Responsive Layout:** A mobile-first approach ensuring the gritty aesthetic works on all screen sizes.
-- **Micro-interactions:** Hover effects and refined button states.
+- **Micro-interactions:** Hover effects, refined button states, and custom mobile menu.
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** HTML5, CSS3, JavaScript (Vanilla)
+- **Frontend:** HTML5, CSS3, JavaScript (Vanilla ES6+)
 - **Build Tool:** Vite 6.x
 - **Fonts:** Black Ops One, Courier Prime (Google Fonts)
+- **Maps:** Leaflet.js (OpenStreetMap)
 - **Deployment:** GitHub Pages
 - **Domain:** Custom domain via CNAME
 
@@ -90,17 +92,21 @@ npm run preview
 queens-of-steel/
 ├── public/                 # Static assets served by Vite
 │   ├── css/
-│   │   └── style.css       # Core design system & gritty aesthetic
+│   │   ├── components/     # Reusable UI components (nav, buttons, cards)
+│   │   ├── global/         # Global styles (variables, reset, typography)
+│   │   ├── sections/       # Section-specific styles (hero, activities, etc.)
+│   │   └── style.css       # Main entry point importing all CSS modules
 │   ├── img/                # Optimized band visuals & event graphics
 │   ├── js/
-│   └── script.js       # Language logic & scroll animations
+│   │   ├── script.js       # Core logic (DOM, events, animations)
+│   │   └── translations.js # Language data module
 │   ├── CNAME               # Custom domain configuration
 │   ├── .nojekyll           # Bypasses Jekyll for GitHub Pages
 │   └── favicon.png
 ├── index.html              # Main semantic HTML structure
 ├── vite.config.js          # Vite configuration & build optimization
 ├── package.json            # Dependencies & scripts
-└── README.md               # You are here
+└── README.md               # Project documentation
 ```
 
 ## 🌍 Deployment
@@ -134,6 +140,8 @@ Contact: <cooperate@queensofsteel.com>
 
 ## ⚖️ Manifesto
 
+*Two decades demonstrating that metal has no gender. Our voice is guttural, our presence indelible. Against patriarchy, volume to the max. We are the queens of steel and we have come to shake the foundations.*
+
 *Dos décadas demostrando que el metal no tiene género. Nuestra voz es gutural, nuestra presencia imborrable. Contra el patriarcado, volumen al máximo. Somos las reinas del acero y hemos venido a hacer temblar los cimientos.*
 
 *Dues dècades demostrant que el metall no té gènere. La nostra veu és gutural, la nostra presència inesborrable. Contra el patriarcat, volum al màxim. Som les reines de l'acer i hem vingut a fer tremolar els fonaments.*
@@ -146,4 +154,4 @@ Contact: <cooperate@queensofsteel.com>
 
 ---
 
-© 2026 QUEENS OF STEEL · Diseñado por la Causa. Autogestión siempre.
+2026 QUEENS OF STEEL · Designed by the Cause.
