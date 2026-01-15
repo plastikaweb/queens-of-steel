@@ -107,15 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Un petit script per fer smooth scroll si el navegador no ho suporta nativament o per afegir efectes
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+// El smooth scroll es gestiona nativament per CSS (scroll-behavior: smooth)
+// per permetre que els hashes es reflecteixin a la URL.
 
 // Simple Reveal on Scroll
 const observer = new IntersectionObserver((entries) => {
