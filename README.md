@@ -15,17 +15,18 @@ Queens of Steel Fest is a Barcelona-based festival celebrating two decades of de
 - **Website:** [www.queensfest.org](https://www.queensfest.org)
 
 ### Colectivo 1 Año Oficial
+
 The festival includes a dedicated space for political collectives, local distros, and merchandise, fostering a space for activism and community beyond the music.
 
 ## 🎤 Line-Up
 
 The festival features five all-women bands representing different styles of extreme music:
 
-- **TUGURIO** - Grindcore / Crust
-- **SACROSANCTA DECADENCIA OCCIDENTAL** - Black Metal / Punk
-- **SATON** - Hardcore / Screamo
-- **MATER TENEBRARUM** - Black Metal
-- **IMPÍA** - Crust / D-Beat
+- **TUGURIO** - Sludge/death
+- **SACROSANCTA DECADENCIA OCCIDENTAL** - Stench/Crust/Death
+- **SAYÓN** - Stenchcore/crust
+- **MATER TENEBRARUM** - Doom goth
+- **IMPÍA** - Dbeat crudo y metalizado
 
 ## 🛠️ Activities
 
@@ -37,11 +38,13 @@ The festival features five all-women bands representing different styles of extr
 
 ### Bilingual Support (ES/CA)
 The site is fully bilingual, supporting Spanish and Catalan. It uses a custom JavaScript implementation that:
+
 - Switches content dynamically using `data-key` attributes.
 - Persists language selection via URL parameters (`?lang=es` or `?lang=ca`).
 - Automatically detects the user's preferred language.
 
 ### Modern UX & Animations
+
 - **Reveal on Scroll:** Band cards and sections smoothly fade and slide into view as the user scrolls.
 - **Smooth Navigation:** Internal links use smooth-scroll behavior for a premium feel.
 - **Responsive Layout:** A mobile-first approach ensuring the gritty aesthetic works on all screen sizes.
@@ -84,7 +87,7 @@ npm run preview
 
 ### Project Structure
 
-```
+```text
 queens-of-steel/
 ├── public/                 # Static assets served by Vite
 │   ├── css/
@@ -105,12 +108,13 @@ queens-of-steel/
 
 The site is automatically deployed to GitHub Pages via GitHub Actions when pushed to the main branch.
 
-- **Production URL:** https://www.queensfest.org
-- **GitHub Pages URL:** https://plastikaweb.github.io/queens-of-steel/
+- **Production URL:** [https://www.queensfest.org](https://www.queensfest.org)
+- **GitHub Pages URL:** [https://plastikaweb.github.io/queens-of-steel/](https://plastikaweb.github.io/queens-of-steel/)
 
 ## 🎨 Design Philosophy
 
 The website embodies the DIY punk aesthetic with:
+
 - **Gritty textures** and torn paper separators
 - **High contrast** black background with vibrant accent colors
 - **Bold typography** using industrial and typewriter-style fonts
@@ -120,13 +124,14 @@ The website embodies the DIY punk aesthetic with:
 ## 🤝 Get Involved
 
 The festival is looking for volunteers to help with:
+
 - Bar service
 - Stage management
 - Access control
 - Logistics
 - Transportation
 
-Contact: teuemail@email.com
+Contact: <cooperate@queensofsteel.com>
 
 ## ⚖️ Manifesto
 
@@ -138,7 +143,7 @@ Contact: teuemail@email.com
 
 - **Design & Development:** [Plastikaweb](https://www.plastikaweb.com)
 - **Author:** Carlos Matheu Armengol
-- **Email:** info@plastikaweb.com
+- **Email:** <info@plastikaweb.com>
 
 ---
 
