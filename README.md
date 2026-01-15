@@ -10,13 +10,12 @@ Queens of Steel Fest is a Barcelona-based festival celebrating two decades of de
 
 ### Event Details
 
-- **Date:** March 7, 2026  
+- **Date:** March 7, 2026 (07/03/2026)  
+- **Time:** 17:00h  
+- **Price:** Taquilla inversa (Recommended donation 5€)  
+- **Extras:** Vegan food and drinks at popular prices  
 - **Location:** Carrer del Soroll, 666, Barcelona  
 - **Website:** [www.queensfest.org](https://www.queensfest.org)
-
-### Colectivo 1 Año Oficial
-
-The festival includes a dedicated space for political collectives, local distros, and merchandise, fostering a space for activism and community beyond the music.
 
 ## 🎤 Line-Up
 
@@ -32,7 +31,6 @@ The festival features five all-women bands representing different styles of extr
 
 - **Gutural Workshop** - Extreme vocal technique workshop with Laia from Saton
 - **Women and Black Metal** - Roundtable discussion about female presence in the extreme music scene
-- **Collective Space** - Area for collectives, distros, and political materials
 
 ## 🌐 Website Features
 

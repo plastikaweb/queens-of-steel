@@ -178,6 +178,41 @@ header h1 span {
     transform: rotate(1deg);
 }
 
+.event-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+    width: 100%;
+    max-width: 900px;
+}
+
+.info-item {
+    border: 1px dashed var(--color-accent);
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.info-item:hover {
+    background: rgba(178, 75, 243, 0.1);
+    border-style: solid;
+}
+
+.info-item h4 {
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.info-item p {
+    font-family: var(--font-body);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
 /* --- Nav --- */
 nav {
     position: sticky;
