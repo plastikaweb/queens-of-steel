@@ -8,6 +8,8 @@
       name="description"
       content="Queens of Steel Fest 2026. 20 años de ruido y resistencia. Festival de metal, punk y hardcore en Barcelona. 7 de Marzo." />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preload" href="/img/hero-background.jpg" as="image" />
+    <link rel="preload" href="/img/image.png" as="image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -63,6 +65,7 @@
             alt="Queens of Steel Logo"
             style="max-width: 500px; width: 90%; margin-bottom: 1rem"
             loading="eager"
+            fetchpriority="high"
         /></a>
         <h1>FEST 2026</h1>
         <h2 style="letter-spacing: 5px; color: var(--color-accent)">20th ANNIVERSARY</h2>
@@ -512,7 +515,8 @@
                 box-shadow: 10px 10px 0 rgba(178, 75, 243, 0.2);
                 max-width: 100%;
                 height: auto;
-              " />
+              "
+              loading="lazy" />
           </div>
           <div class="activity-content">
             <h3 data-key="act_fascismo_title">METAL FRENTE AL FASCISMO</h3>
