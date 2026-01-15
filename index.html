@@ -1,340 +1,617 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Queens of Steel Fest 2026</title>
-    <meta name="description" content="Queens of Steel Fest 2026. 20 años de ruido y resistencia. Festival de metal, punk y hardcore en Barcelona. 7 de Marzo.">
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta
+      name="description"
+      content="Queens of Steel Fest 2026. 20 años de ruido y resistencia. Festival de metal, punk y hardcore en Barcelona. 7 de Marzo." />
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin="" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
     <nav>
-        <div class="container">
-            <div class="nav-main">
-                <a href="#inici" class="nav-logo">
-                    <img src="/img/q-logo.png" alt="Queens of Steel">
-                </a>
-                <ul>
-                    <li><a href="#20-anys" data-key="nav_20years">20 AÑOS</a></li>
-                    <li><a href="#concerts" data-key="nav_concerts">LINE UP</a></li>
-                    <li><a href="#mercadet" data-key="nav_mercadillo">MERCADILLO</a></li>
-                    <li><a href="#activitats" data-key="nav_activities">ACTIVIDADES</a></li>
-                    <li><a href="#voluntaris" data-key="nav_participate">PARTICIPA</a></li>
-                    <li><a href="#ubicacio" data-key="nav_location">UBICACIÓN</a></li>
-                </ul>
-            </div>
-            <div class="lang-switch">
-                <button onclick="setLang('es')" id="btn-es" class="active" aria-label="Cambiar idioma a Español">ES</button>
-                <button onclick="setLang('ca')" id="btn-ca" aria-label="Canviar idioma a Català">CA</button>
-                <button onclick="setLang('en')" id="btn-en" aria-label="Switch language to English">EN</button>
-            </div>
+      <div class="container">
+        <div class="nav-main">
+          <a href="#inici" class="nav-logo">
+            <img src="/img/q-logo.png" alt="Queens of Steel" />
+          </a>
+          <ul>
+            <li><a href="#20-anys" data-key="nav_20years">20 AÑOS</a></li>
+            <li><a href="#concerts" data-key="nav_concerts">LINE UP</a></li>
+            <li><a href="#mercadet" data-key="nav_mercadillo">MERCADILLO</a></li>
+            <li><a href="#activitats" data-key="nav_activities">ACTIVIDADES</a></li>
+            <li><a href="#voluntaris" data-key="nav_participate">PARTICIPA</a></li>
+            <li><a href="#ubicacio" data-key="nav_location">UBICACIÓN</a></li>
+          </ul>
         </div>
+        <div class="lang-switch">
+          <button
+            onclick="setLang('es')"
+            id="btn-es"
+            class="active"
+            aria-label="Cambiar idioma a Español">
+            ES
+          </button>
+          <button onclick="setLang('ca')" id="btn-ca" aria-label="Canviar idioma a Català">
+            CA
+          </button>
+          <button onclick="setLang('en')" id="btn-en" aria-label="Switch language to English">
+            EN
+          </button>
+        </div>
+      </div>
     </nav>
 
-    <header id="inici">
-        <a href="#inici"><img src="/img/image.png" alt="Queens of Steel Logo" style="max-width: 500px; width: 90%; margin-bottom: 1rem;" loading="eager"></a>
+    <main>
+      <header id="inici">
+        <a href="#inici"
+          ><img
+            src="/img/image.png"
+            alt="Queens of Steel Logo"
+            style="max-width: 500px; width: 90%; margin-bottom: 1rem"
+            loading="eager"
+        /></a>
         <h1>FEST 2026</h1>
-        <h2 style="letter-spacing: 5px; color: var(--color-accent);">20th ANNIVERSARY</h2>
-        
+        <h2 style="letter-spacing: 5px; color: var(--color-accent)">20th ANNIVERSARY</h2>
+
         <div class="event-info-grid">
-            <div class="info-item">
-                <h3 data-key="date_label">FECHA</h3>
-                <p data-key="date">7 DE MARZO</p>
-            </div>
-            <div class="info-item">
-                <h3 data-key="time_label">HORARIO</h3>
-                <p data-key="time_value">17:00h</p>
-            </div>
-            <div class="info-item">
-                <h3 data-key="price_label">PRECIO</h3>
-                <p data-key="price_value">Taquilla inversa (aportación recomendada 5€)</p>
-            </div>
-            <div class="info-item">
-                <h3 data-key="extras_label">EXTRAS</h3>
-                <p data-key="extras_value">Comida vegana y bebida a precios populares</p>
-            </div>
+          <div class="info-item">
+            <h3 data-key="date_label">FECHA</h3>
+            <p data-key="date">7 DE MARZO</p>
+          </div>
+          <div class="info-item">
+            <h3 data-key="time_label">HORARIO</h3>
+            <p data-key="time_value">17:00h</p>
+          </div>
+          <div class="info-item">
+            <h3 data-key="price_label">PRECIO</h3>
+            <p data-key="price_value">Taquilla inversa (aportación recomendada 5€)</p>
+          </div>
+          <div class="info-item">
+            <h3 data-key="extras_label">EXTRAS</h3>
+            <p data-key="extras_value">Comida vegana y bebida a precios populares</p>
+          </div>
         </div>
+      </header>
 
-
-    </header>
-    
-        <section id="20-anys" class="container">
+      <section id="20-anys" class="container">
         <div class="torn-separator"></div>
         <h2 data-key="noise_title">20 AÑOS DE RUIDO Y RESISTENCIA</h2>
-        <div style="max-width: 800px; margin: 0 auto;">
-            <p class="mb-2" style="font-size: 1.2rem; border-left: 4px solid var(--color-accent); padding-left: 20px;" data-key="noise_desc">
-                Dos décadas demostrando que el metal no tiene género. Nuestra voz es gutural, nuestra presencia imborrable. Contra el patriarcado, volumen al máximo. Somos las reinas del acero y hemos venido a hacer temblar los cimientos.
-            </p>
+        <div style="max-width: 800px; margin: 0 auto">
+          <p
+            class="mb-2"
+            style="
+              font-size: 1.2rem;
+              border-left: 4px solid var(--color-accent);
+              padding-left: 20px;
+            "
+            data-key="noise_desc">
+            Dos décadas demostrando que el metal no tiene género. Nuestra voz es gutural, nuestra
+            presencia imborrable. Contra el patriarcado, volumen al máximo. Somos las reinas del
+            acero y hemos venido a hacer temblar los cimientos.
+          </p>
         </div>
-    </section>
+      </section>
 
-    <section id="concerts" class="container">
+      <section id="concerts" class="container">
         <div class="torn-separator"></div>
 
         <div class="text-center">
-            <h2>LINE UP</h2>
+          <h2>LINE UP</h2>
         </div>
-        
+
         <div class="band-grid">
-             <article class="band-card">
-                <a href="https://www.instagram.com/impia_punk" target="_blank" rel="noopener" class="band-link">
-                    <img src="img/impia.jpg" alt="Impía" class="band-img" width="300" height="300" loading="lazy">
-                    <h3>IMPÍA</h3>
-                </a>
-                <p data-key="impia_desc">Dbeat crudo y metalizado</p>
-                <div class="band-external-links">
-                    <a href="https://www.instagram.com/impia_punk" target="_blank" rel="noopener" class="external-link">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z"/></svg>
-                        INSTAGRAM
-                    </a>
-                </div>
-            </article>
+          <article class="band-card">
+            <a
+              href="https://www.instagram.com/impia_punk"
+              target="_blank"
+              rel="noopener"
+              class="band-link">
+              <img
+                src="img/impia.jpg"
+                alt="Impía"
+                class="band-img"
+                width="300"
+                height="300"
+                loading="lazy" />
+              <h3>IMPÍA</h3>
+            </a>
+            <p data-key="impia_desc">Dbeat crudo y metalizado</p>
+            <div class="band-external-links">
+              <a
+                href="https://www.instagram.com/impia_punk"
+                target="_blank"
+                rel="noopener"
+                class="external-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z" />
+                </svg>
+                INSTAGRAM
+              </a>
+            </div>
+          </article>
 
-             <article class="band-card">
-                <a href="https://sayonpunk.bandcamp.com" target="_blank" rel="noopener" class="band-link">
-                    <img src="img/sayon.jpg" alt="Sayón" class="band-img" width="300" height="300" loading="lazy">
-                    <h3>SAYÓN</h3>
-                </a>
-                <p>Stenchcore/crust</p>
-                <div class="band-external-links">
-                    <a href="https://sayonpunk.bandcamp.com" target="_blank" rel="noopener" class="external-link">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z"/></svg>
-                        BANDCAMP
-                    </a>
-                </div>
-            </article>
+          <article class="band-card">
+            <a
+              href="https://sayonpunk.bandcamp.com"
+              target="_blank"
+              rel="noopener"
+              class="band-link">
+              <img
+                src="img/sayon.jpg"
+                alt="Sayón"
+                class="band-img"
+                width="300"
+                height="300"
+                loading="lazy" />
+              <h3>SAYÓN</h3>
+            </a>
+            <p>Stenchcore/crust</p>
+            <div class="band-external-links">
+              <a
+                href="https://sayonpunk.bandcamp.com"
+                target="_blank"
+                rel="noopener"
+                class="external-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z" />
+                </svg>
+                BANDCAMP
+              </a>
+            </div>
+          </article>
 
-            <article class="band-card">
-                <a href="https://tugurio.bandcamp.com" target="_blank" rel="noopener" class="band-link">
-                    <img src="img/tugurio.jpg" alt="Tugurio" class="band-img" width="300" height="300" loading="lazy">
-                    <h3>TUGURIO</h3>
-                </a>
-                <p>Sludge/death</p>
-                <div class="band-external-links">
-                    <a href="https://tugurio.bandcamp.com" target="_blank" rel="noopener" class="external-link">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z"/></svg>
-                        BANDCAMP
-                    </a>
-                </div>
-            </article>
+          <article class="band-card">
+            <a href="https://tugurio.bandcamp.com" target="_blank" rel="noopener" class="band-link">
+              <img
+                src="img/tugurio.jpg"
+                alt="Tugurio"
+                class="band-img"
+                width="300"
+                height="300"
+                loading="lazy" />
+              <h3>TUGURIO</h3>
+            </a>
+            <p>Sludge/death</p>
+            <div class="band-external-links">
+              <a
+                href="https://tugurio.bandcamp.com"
+                target="_blank"
+                rel="noopener"
+                class="external-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z" />
+                </svg>
+                BANDCAMP
+              </a>
+            </div>
+          </article>
 
-             <article class="band-card">
-                <a href="https://matertenebrarumband.bandcamp.com/" target="_blank" rel="noopener" class="band-link">
-                    <img src="img/mater_tenebrarum.jpg" alt="Mater Tenebrarum" class="band-img" width="300" height="300" loading="lazy">
-                    <h3>MATER TENEBRARUM</h3>
-                </a>
-                <p>Doom goth</p>
-                <div class="band-external-links">
-                    <a href="https://matertenebrarumband.bandcamp.com/" target="_blank" rel="noopener" class="external-link">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z"/></svg>
-                        BANDCAMP
-                    </a>
-                </div>
-            </article>
+          <article class="band-card">
+            <a
+              href="https://matertenebrarumband.bandcamp.com/"
+              target="_blank"
+              rel="noopener"
+              class="band-link">
+              <img
+                src="img/mater_tenebrarum.jpg"
+                alt="Mater Tenebrarum"
+                class="band-img"
+                width="300"
+                height="300"
+                loading="lazy" />
+              <h3>MATER TENEBRARUM</h3>
+            </a>
+            <p>Doom goth</p>
+            <div class="band-external-links">
+              <a
+                href="https://matertenebrarumband.bandcamp.com/"
+                target="_blank"
+                rel="noopener"
+                class="external-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z" />
+                </svg>
+                BANDCAMP
+              </a>
+            </div>
+          </article>
 
-            <article class="band-card">
-                <a href="https://sacrosantadecadenciaoccidentalcrust.bandcamp.com/" target="_blank" rel="noopener" class="band-link">
-                    <img src="img/sacrosancta.jpg" alt="Sacrosancta Decadencia Occidental" class="band-img" width="300" height="300" loading="lazy">
-                    <h3 style="font-size: 1.5rem">SACROSANCTA DECADENCIA OCCIDENTAL</h3>
-                </a>
-                <p>Stench/Crust/Death</p>
-                <div class="band-external-links">
-                    <a href="https://sacrosantadecadenciaoccidentalcrust.bandcamp.com/" target="_blank" rel="noopener" class="external-link">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z"/></svg>
-                        BANDCAMP
-                    </a>
-                </div>
-            </article>
+          <article class="band-card">
+            <a
+              href="https://sacrosantadecadenciaoccidentalcrust.bandcamp.com/"
+              target="_blank"
+              rel="noopener"
+              class="band-link">
+              <img
+                src="img/sacrosancta.jpg"
+                alt="Sacrosancta Decadencia Occidental"
+                class="band-img"
+                width="300"
+                height="300"
+                loading="lazy" />
+              <h3 style="font-size: 1.5rem">SACROSANCTA DECADENCIA OCCIDENTAL</h3>
+            </a>
+            <p>Stench/Crust/Death</p>
+            <div class="band-external-links">
+              <a
+                href="https://sacrosantadecadenciaoccidentalcrust.bandcamp.com/"
+                target="_blank"
+                rel="noopener"
+                class="external-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z" />
+                </svg>
+                BANDCAMP
+              </a>
+            </div>
+          </article>
         </div>
-    </section>
+      </section>
 
-    <section id="mercadet" class="container">
+      <section id="mercadet" class="container">
         <div class="torn-separator"></div>
         <div class="text-center">
-            <h2 data-key="mercadillo_title">MERCADILLO FEMINISTA</h2>
-            <p class="mb-2" style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; margin-bottom: 2rem;" data-key="mercadillo_intro">
-                17:00h | APERTURA Y MERCADILLO DIY Distribución y artesanía con:
-            </p>
+          <h2 data-key="mercadillo_title">MERCADILLO FEMINISTA</h2>
+          <p
+            class="mb-2"
+            style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; margin-bottom: 2rem"
+            data-key="mercadillo_intro">
+            17:00h | APERTURA Y MERCADILLO DIY Distribución y artesanía con:
+          </p>
         </div>
 
         <div class="mercadillo-grid">
-            <article class="mercadillo-card">
-                <a href="https://www.instagram.com/maldoillustration" target="_blank" rel="noopener" class="band-link">
-                    <img src="img/marta-maldonado.jpg" alt="Maldo Illustration" class="mercadillo-img" loading="lazy">
-                    <h3>MALDO ILLUSTRATION</h3>
-                </a>
-                <p data-key="maldo_desc">Proyecto gráfico de Marta Maldonado (Maldo) centrado en el mundo editorial y musical. A través del óleo y la tinta, fusiona naturaleza, mitología, metal y oscuridad.</p>
-                <div class="band-external-links">
-                    <a href="https://www.instagram.com/maldoillustration" target="_blank" rel="noopener" class="external-link">
-                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z"/></svg>
-                        INSTAGRAM
-                    </a>
-                </div>
-            </article>
+          <article class="mercadillo-card">
+            <a
+              href="https://www.instagram.com/maldoillustration"
+              target="_blank"
+              rel="noopener"
+              class="band-link">
+              <img
+                src="img/marta-maldonado.jpg"
+                alt="Maldo Illustration"
+                class="mercadillo-img"
+                loading="lazy" />
+              <h3>MALDO ILLUSTRATION</h3>
+            </a>
+            <p data-key="maldo_desc">
+              Proyecto gráfico de Marta Maldonado (Maldo) centrado en el mundo editorial y musical.
+              A través del óleo y la tinta, fusiona naturaleza, mitología, metal y oscuridad.
+            </p>
+            <div class="band-external-links">
+              <a
+                href="https://www.instagram.com/maldoillustration"
+                target="_blank"
+                rel="noopener"
+                class="external-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z" />
+                </svg>
+                INSTAGRAM
+              </a>
+            </div>
+          </article>
 
-            <article class="mercadillo-card">
-                <a href="https://www.instagram.com/ultrachains" target="_blank" rel="noopener" class="band-link">
-                     <img src="img/ultrachains.jpg" alt="Ultrachains" class="mercadillo-img" loading="lazy">
-                     <h3>ULTRACHAINS</h3>
-                </a>
-                <p data-key="ultrachains_desc">Desde Madrid llega este proyecto de joyería artesanal en acero inoxidable. Piezas de cota de malla inspiradas en la estética punk y creadas a mano.</p>
-                <div class="band-external-links">
-                    <a href="https://www.instagram.com/ultrachains" target="_blank" rel="noopener" class="external-link">
-                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z"/></svg>
-                        INSTAGRAM
-                    </a>
-                </div>
-            </article>
+          <article class="mercadillo-card">
+            <a
+              href="https://www.instagram.com/ultrachains"
+              target="_blank"
+              rel="noopener"
+              class="band-link">
+              <img
+                src="img/ultrachains.jpg"
+                alt="Ultrachains"
+                class="mercadillo-img"
+                loading="lazy" />
+              <h3>ULTRACHAINS</h3>
+            </a>
+            <p data-key="ultrachains_desc">
+              Desde Madrid llega este proyecto de joyería artesanal en acero inoxidable. Piezas de
+              cota de malla inspiradas en la estética punk y creadas a mano.
+            </p>
+            <div class="band-external-links">
+              <a
+                href="https://www.instagram.com/ultrachains"
+                target="_blank"
+                rel="noopener"
+                class="external-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z" />
+                </svg>
+                INSTAGRAM
+              </a>
+            </div>
+          </article>
 
-            <article class="mercadillo-card">
-                 <a href="https://www.instagram.com/industriasmda" target="_blank" rel="noopener" class="band-link">
-                    <img src="img/industrias-mda.jpg" alt="Industrias MDA" class="mercadillo-img" loading="lazy">
-                    <h3>INDUSTRIAS MDA</h3>
-                 </a>
-                <p data-key="mda_desc">Colectivo que monta conciertos de punk, charlas y distribuye materiales bajo la bandera de la autogestión. Buenos libros, fanzines y música.</p>
-                <div class="band-external-links">
-                    <a href="https://www.instagram.com/industriasmda" target="_blank" rel="noopener" class="external-link">
-                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z"/></svg>
-                        INSTAGRAM
-                    </a>
-                </div>
-            </article>
+          <article class="mercadillo-card">
+            <a
+              href="https://www.instagram.com/industriasmda"
+              target="_blank"
+              rel="noopener"
+              class="band-link">
+              <img
+                src="img/industrias-mda.jpg"
+                alt="Industrias MDA"
+                class="mercadillo-img"
+                loading="lazy" />
+              <h3>INDUSTRIAS MDA</h3>
+            </a>
+            <p data-key="mda_desc">
+              Colectivo que monta conciertos de punk, charlas y distribuye materiales bajo la
+              bandera de la autogestión. Buenos libros, fanzines y música.
+            </p>
+            <div class="band-external-links">
+              <a
+                href="https://www.instagram.com/industriasmda"
+                target="_blank"
+                rel="noopener"
+                class="external-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z" />
+                </svg>
+                INSTAGRAM
+              </a>
+            </div>
+          </article>
 
-            <article class="mercadillo-card">
-                 <a href="https://www.instagram.com/corv.diy" target="_blank" rel="noopener" class="band-link">
-                    <img src="img/corv.jpg" alt="Corv DIY" class="mercadillo-img" loading="lazy">
-                    <h3>CORV DIY</h3>
-                 </a>
-                <p data-key="corv_desc">Proyecto que apuesta por la autogestión y el reciclaje creativo. Desde parches serigrafiados hasta accesorios con materiales recuperados.</p>
-                <div class="band-external-links">
-                    <a href="https://www.instagram.com/corv.diy" target="_blank" rel="noopener" class="external-link">
-                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z"/></svg>
-                        INSTAGRAM
-                    </a>
-                </div>
-            </article>
+          <article class="mercadillo-card">
+            <a
+              href="https://www.instagram.com/corv.diy"
+              target="_blank"
+              rel="noopener"
+              class="band-link">
+              <img src="img/corv.jpg" alt="Corv DIY" class="mercadillo-img" loading="lazy" />
+              <h3>CORV DIY</h3>
+            </a>
+            <p data-key="corv_desc">
+              Proyecto que apuesta por la autogestión y el reciclaje creativo. Desde parches
+              serigrafiados hasta accesorios con materiales recuperados.
+            </p>
+            <div class="band-external-links">
+              <a
+                href="https://www.instagram.com/corv.diy"
+                target="_blank"
+                rel="noopener"
+                class="external-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z" />
+                </svg>
+                INSTAGRAM
+              </a>
+            </div>
+          </article>
 
-            <article class="mercadillo-card">
-                 <a href="https://www.instagram.com/marica.mila666" target="_blank" rel="noopener" class="band-link">
-                    <img src="img/marica-mila.jpg" alt="Marica Mila" class="mercadillo-img" loading="lazy">
-                    <h3>MARICA MILA</h3>
-                 </a>
-                <p data-key="marica_desc">Ilustración y tatuaje que explora y cuestiona los sistemas de opresión, visibilizando formas de resistencia. Personajes emancipadxs y desafiantes.</p>
-                <div class="band-external-links">
-                    <a href="https://www.instagram.com/marica.mila666" target="_blank" rel="noopener" class="external-link">
-                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z"/></svg>
-                        INSTAGRAM
-                    </a>
-                </div>
-            </article>
+          <article class="mercadillo-card">
+            <a
+              href="https://www.instagram.com/marica.mila666"
+              target="_blank"
+              rel="noopener"
+              class="band-link">
+              <img
+                src="img/marica-mila.jpg"
+                alt="Marica Mila"
+                class="mercadillo-img"
+                loading="lazy" />
+              <h3>MARICA MILA</h3>
+            </a>
+            <p data-key="marica_desc">
+              Ilustración y tatuaje que explora y cuestiona los sistemas de opresión, visibilizando
+              formas de resistencia. Personajes emancipadxs y desafiantes.
+            </p>
+            <div class="band-external-links">
+              <a
+                href="https://www.instagram.com/marica.mila666"
+                target="_blank"
+                rel="noopener"
+                class="external-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z" />
+                </svg>
+                INSTAGRAM
+              </a>
+            </div>
+          </article>
 
-            <article class="mercadillo-card">
-                 <a href="https://www.instagram.com/susana.glez.artes" target="_blank" rel="noopener" class="band-link">
-                    <img src="img/susana-gonzalez.jpg" alt="Susana Glez Artes" class="mercadillo-img" loading="lazy">
-                    <h3>SUSANA GLEZ ARTES</h3>
-                 </a>
-                <p data-key="susana_desc">Ilustradora y editora de fanzines enfocada en el imaginario psycho-heavy y la gráfica musical, con un fuerte componente reivindicativo.</p>
-                <div class="band-external-links">
-                    <a href="https://www.instagram.com/susana.glez.artes" target="_blank" rel="noopener" class="external-link">
-                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z"/></svg>
-                        INSTAGRAM
-                    </a>
-                </div>
-            </article>
+          <article class="mercadillo-card">
+            <a
+              href="https://www.instagram.com/susana.glez.artes"
+              target="_blank"
+              rel="noopener"
+              class="band-link">
+              <img
+                src="img/susana-gonzalez.jpg"
+                alt="Susana Glez Artes"
+                class="mercadillo-img"
+                loading="lazy" />
+              <h3>SUSANA GLEZ ARTES</h3>
+            </a>
+            <p data-key="susana_desc">
+              Ilustradora y editora de fanzines enfocada en el imaginario psycho-heavy y la gráfica
+              musical, con un fuerte componente reivindicativo.
+            </p>
+            <div class="band-external-links">
+              <a
+                href="https://www.instagram.com/susana.glez.artes"
+                target="_blank"
+                rel="noopener"
+                class="external-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z" />
+                </svg>
+                INSTAGRAM
+              </a>
+            </div>
+          </article>
 
-            <article class="mercadillo-card">
-                 <a href="https://www.instagram.com/imagen.negativa" target="_blank" rel="noopener" class="band-link">
-                    <img src="img/flamigera.jpg" alt="Flamígera" class="mercadillo-img" loading="lazy">
-                    <h3>FLAMÍGERA</h3>
-                 </a>
-                <p data-key="flamigera_desc">Proyecto de ropa intervenida a mano y serigrafía que recrea el imaginario de bandas de metal y punk bajo un estilo propio.</p>
-                <div class="band-external-links">
-                    <a href="https://www.instagram.com/imagen.negativa" target="_blank" rel="noopener" class="external-link">
-                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z"/></svg>
-                        INSTAGRAM
-                    </a>
-                </div>
-            </article>
+          <article class="mercadillo-card">
+            <a
+              href="https://www.instagram.com/imagen.negativa"
+              target="_blank"
+              rel="noopener"
+              class="band-link">
+              <img src="img/flamigera.jpg" alt="Flamígera" class="mercadillo-img" loading="lazy" />
+              <h3>FLAMÍGERA</h3>
+            </a>
+            <p data-key="flamigera_desc">
+              Proyecto de ropa intervenida a mano y serigrafía que recrea el imaginario de bandas de
+              metal y punk bajo un estilo propio.
+            </p>
+            <div class="band-external-links">
+              <a
+                href="https://www.instagram.com/imagen.negativa"
+                target="_blank"
+                rel="noopener"
+                class="external-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44z" />
+                </svg>
+                INSTAGRAM
+              </a>
+            </div>
+          </article>
         </div>
-    </section>
+      </section>
 
-    <section id="activitats" class="container">
+      <section id="activitats" class="container">
         <div class="torn-separator"></div>
         <div class="text-center">
-            <h2 data-key="activities_title">ACTIVIDADES</h2>
+          <h2 data-key="activities_title">ACTIVIDADES</h2>
         </div>
-        
+
         <div class="activity-split">
-            <div class="activity-image" style="background: transparent; border: none; box-shadow: none;">
-                <img src="img/metal_frente_al_fascismo.jpg" alt="Rock & Antifa Visual" style="border: 2px solid var(--color-accent); box-shadow: 10px 10px 0 rgba(178, 75, 243, 0.2); max-width: 100%; height: auto;">
-            </div>
-            <div class="activity-content">
-                <h3 data-key="act_fascismo_title">METAL FRENTE AL FASCISMO</h3>
-                <p data-key="act_fascismo_desc">Un conversatorio con Raquel García, Emilio Casal y dinamizado por Sol. Sábado 7 de marzo en Palau Alós.</p>
-                <div class="speakers-list">
-                    <h4 data-key="act_fascismo_speakers_title">Un conversatorio con:</h4>
-                    <p data-key="act_fascismo_speakers">Raquel García<br><small>(fotógrafa y fundadora de Rockin' Ladies)</small><br>Emilio Casal<br><small>(Bocc, Tugurio y Veratre)</small><br>y dinamizada por Sol</p>
-                </div>
-                <div class="schedule-list">
-                    <h4 data-key="act_fascismo_schedule_title">Sábado 7 de marzo</h4>
-                    <p data-key="act_fascismo_schedule">17:30h @ Palau Alós</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="voluntaris">       
-        <div class="container text-center">
-            <div class="torn-separator"></div>
-            <h2 data-key="help_title">¿NOS ECHAS UNA MANO?</h2>
-            <p class="mb-2" style="max-width: 600px; margin-left: auto; margin-right: auto;" data-key="help_desc">
-                Buscamos gente para el equipo de trabajo. Sin vosotrxs esto no sería posible. ¿Te apuntas a hacer un turno?
+          <div
+            class="activity-image"
+            style="background: transparent; border: none; box-shadow: none">
+            <img
+              src="img/metal_frente_al_fascismo.jpg"
+              alt="Rock & Antifa Visual"
+              style="
+                border: 2px solid var(--color-accent);
+                box-shadow: 10px 10px 0 rgba(178, 75, 243, 0.2);
+                max-width: 100%;
+                height: auto;
+              " />
+          </div>
+          <div class="activity-content">
+            <h3 data-key="act_fascismo_title">METAL FRENTE AL FASCISMO</h3>
+            <p data-key="act_fascismo_desc">
+              Un conversatorio con Raquel García, Emilio Casal y dinamizado por Sol. Sábado 7 de
+              marzo en Palau Alós.
             </p>
-            
-            <ul class="roles-list justify-content-center" style="justify-content: center;">
-                <li data-key="role_bar">BARRA</li>
-                <li data-key="role_stage">ESCENARIO</li>
-                <li data-key="role_access">ACCESO</li>
-                <li data-key="role_logistics">LOGÍSTICA</li>
-                <li data-key="role_transport">TRANSPORTE</li>
-            </ul>
-            <br>
-            <a href="mailto:cooperate@queensofsteel.com" class="btn" style="background: #000; color: #fff; border-color: #000;" data-key="write_us">ESCRÍBENOS</a>
+            <div class="speakers-list">
+              <h4 data-key="act_fascismo_speakers_title">Un conversatorio con:</h4>
+              <p data-key="act_fascismo_speakers">
+                Raquel García<br /><small>(fotógrafa y fundadora de Rockin' Ladies)</small
+                ><br />Emilio Casal<br /><small>(Bocc, Tugurio y Veratre)</small><br />y dinamizada
+                por Sol
+              </p>
+            </div>
+            <div class="schedule-list">
+              <h4 data-key="act_fascismo_schedule_title">Sábado 7 de marzo</h4>
+              <p data-key="act_fascismo_schedule">17:30h @ Palau Alós</p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section id="ubicacio" class="container text-center">
+      <section id="voluntaris">
+        <div class="container text-center">
+          <div class="torn-separator"></div>
+          <h2 data-key="help_title">¿NOS ECHAS UNA MANO?</h2>
+          <p
+            class="mb-2"
+            style="max-width: 600px; margin-left: auto; margin-right: auto"
+            data-key="help_desc">
+            Buscamos gente para el equipo de trabajo. Sin vosotrxs esto no sería posible. ¿Te
+            apuntas a hacer un turno?
+          </p>
+
+          <ul class="roles-list justify-content-center" style="justify-content: center">
+            <li data-key="role_bar">BARRA</li>
+            <li data-key="role_stage">ESCENARIO</li>
+            <li data-key="role_access">ACCESO</li>
+            <li data-key="role_logistics">LOGÍSTICA</li>
+            <li data-key="role_transport">TRANSPORTE</li>
+          </ul>
+          <br />
+          <a
+            href="mailto:cooperate@queensofsteel.com"
+            class="btn"
+            style="background: #000; color: #fff; border-color: #000"
+            data-key="write_us"
+            >ESCRÍBENOS</a
+          >
+        </div>
+      </section>
+
+      <section id="ubicacio" class="container text-center">
         <div class="torn-separator"></div>
 
         <h2 data-key="location_title">¿DÓNDE ES?</h2>
         <p class="mb-2">Palau Alòs, c/ Sant Pere Més Baix 55, 08003 Barcelona</p>
-        
-        <div style="width: 100%; height: 300px; background: #222; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-accent);">
-            <div id="map" style="width: 100%; height: 100%;"></div>
+
+        <div
+          style="
+            width: 100%;
+            height: 300px;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-accent);
+          ">
+          <div id="map" style="width: 100%; height: 100%"></div>
         </div>
-    </section>
+      </section>
+    </main>
 
     <footer>
-        <div class="footer-nav mb-2">
-            <a href="#20-anys" data-key="nav_20years">20 AÑOS</a> | 
-            <a href="#concerts" data-key="nav_concerts">LINE UP</a> | 
-            <a href="#mercadillo" data-key="nav_mercadillo">MERCADILLO</a> | 
-            <a href="#activitats" data-key="nav_activities">ACTIVIDADES</a> | 
-            <a href="#voluntaris" data-key="nav_participate">PARTICIPA</a> | 
-            <a href="#ubicacio" data-key="nav_location">UBICACIÓN</a>
-        </div>
-        <p>&copy; 2026 QUEENS OF STEEL | <a href="http://www.queensofsteel.com/" target="_blank" rel="noopener">queensofsteel.com</a></p>
-        <p><span data-key="footer_design">Diseñado por la Causa. Autogestión siempre.</span> <br> <span style="font-size: 0.9em; opacity: 0.8;"><span data-key="footer_credits">Web feta per</span> <a href="https://www.plastikaweb.com" target="_blank" rel="noopener">Plastikaweb</a></span></p>
+      <div class="footer-nav mb-2">
+        <a href="#20-anys" data-key="nav_20years">20 AÑOS</a> |
+        <a href="#concerts" data-key="nav_concerts">LINE UP</a> |
+        <a href="#mercadillo" data-key="nav_mercadillo">MERCADILLO</a> |
+        <a href="#activitats" data-key="nav_activities">ACTIVIDADES</a> |
+        <a href="#voluntaris" data-key="nav_participate">PARTICIPA</a> |
+        <a href="#ubicacio" data-key="nav_location">UBICACIÓN</a>
+      </div>
+      <p>
+        &copy; 2026 QUEENS OF STEEL |
+        <a href="http://www.queensofsteel.com/" target="_blank" rel="noopener">queensofsteel.com</a>
+      </p>
+      <p>
+        <span data-key="footer_design">Diseñado por la Causa. Autogestión siempre.</span> <br />
+        <span style="font-size: 0.9em; opacity: 0.8"
+          ><span data-key="footer_credits">Web feta per</span>
+          <a href="https://www.plastikaweb.com" target="_blank" rel="noopener">Plastikaweb</a></span
+        >
+      </p>
     </footer>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""></script>
     <script src="/js/script.js" defer></script>
-</body>
+  </body>
 </html>
