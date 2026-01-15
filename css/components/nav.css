@@ -255,9 +255,9 @@ nav a:hover {
 
   .nav-menu ul {
     flex-direction: column;
-    gap: 2rem;
+    gap: .25rem;
     text-align: center;
-    margin: auto;
+    margin: 90px auto;
     padding: 2rem 0;
     width: 100%;
   }
@@ -270,7 +270,7 @@ nav a:hover {
   .lang-switch-mobile {
     display: flex !important;
     gap: 15px;
-    margin-top: 1rem;
+    margin-top: 0;
     margin-bottom: 1rem;
     justify-content: center;
   }
