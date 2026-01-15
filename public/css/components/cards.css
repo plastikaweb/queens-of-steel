@@ -91,6 +91,10 @@
   filter: grayscale(0%) contrast(100%);
 }
 
+.band-name-long {
+  font-size: 1.5rem;
+}
+
 /* Mercadillo Card */
 .mercadillo-card {
   background: #111;
