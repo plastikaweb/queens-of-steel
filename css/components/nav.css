@@ -26,7 +26,7 @@ nav .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: auto; /* Allow width to adjust based on aspect ratio */
+  width: auto;
   height: 50px;
   transition: transform 0.2s ease;
   border: none !important;
@@ -36,7 +36,7 @@ nav .container {
 
 .nav-logo img {
   height: 100%;
-  width: auto; /* Mantiene la proporción original de la Q */
+  width: auto;
   object-fit: contain;
 }
 
@@ -84,7 +84,6 @@ nav a:hover {
   color: var(--color-black);
 }
 
-/* Default Desktop Styles (Hide Mobile Elements) */
 .hamburger {
   display: none;
 }
@@ -93,20 +92,19 @@ nav a:hover {
   display: none;
 }
 
-/* Responsive adjustments */
 @media (max-width: 1024px) {
   nav .container {
-    justify-content: space-between; /* Ensure logo and hamburger are spaced */
-    padding-bottom: 0; /* Remove extra padding */
+    justify-content: space-between;
+    padding-bottom: 0;
   }
 
   .nav-main {
     flex-direction: row; 
     width: 100%;
-    justify-content: space-between; /* Hamburger stays left */
+    justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
-    position: relative; /* Context for absolute logo */
+    position: relative;
     height: 60px;
   }
 
@@ -139,15 +137,14 @@ nav a:hover {
     letter-spacing: 1px;
   }
 
-  /* Hamburger Menu Button */
   .hamburger {
     display: flex !important;
     align-items: center;
     justify-content: center;
-    z-index: 102; /* Above overlay */
+    z-index: 102;
     width: 50px;
     height: 50px;
-    padding: 0; /* Remove padding to rely on flex centering */
+    padding: 0;
     cursor: pointer;
     background: transparent;
     border: 1px solid var(--color-accent);
@@ -201,7 +198,6 @@ nav a:hover {
     bottom: -10px;
   }
 
-  /* Hamburger Active State */
   .hamburger.is-active .hamburger-inner {
     transform: rotate(45deg);
   }
@@ -216,7 +212,6 @@ nav a:hover {
     transform: rotate(-90deg);
   }
 
-  /* Mobile Menu Overlay */
   .nav-menu {
     position: fixed;
     top: 0;
@@ -233,6 +228,24 @@ nav a:hover {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     backdrop-filter: blur(5px);
+    overflow-y: auto;
+    justify-content: flex-start;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) var(--color-bg);
+  }
+
+  .nav-menu::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .nav-menu::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+
+  .nav-menu::-webkit-scrollbar-thumb {
+    background-color: var(--color-accent);
+    border-radius: 3px;
   }
 
   .nav-menu.is-active {
@@ -244,6 +257,9 @@ nav a:hover {
     flex-direction: column;
     gap: 2rem;
     text-align: center;
+    margin: auto;
+    padding: 2rem 0;
+    width: 100%;
   }
 
   nav ul li a {
@@ -251,11 +267,11 @@ nav a:hover {
     display: block;
   }
 
-  /* Mobile Language Switcher */
   .lang-switch-mobile {
     display: flex !important;
     gap: 15px;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     justify-content: center;
   }
 
@@ -274,7 +290,6 @@ nav a:hover {
     color: var(--color-black);
   }
   
-  /* Hide Desktop Lang Switch */
   .desktop-only {
     display: none !important;
   }
