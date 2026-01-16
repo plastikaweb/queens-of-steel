@@ -36,19 +36,23 @@ The festival features five all-women bands representing different styles of extr
 
 ### Multilingual Support (ES/CA/EN)
 
-The site is fully bilingual/trilingual, supporting Spanish, Catalan, and English. It uses a custom JavaScript implementation (`public/js/translations.js`) that:
+The site is fully trilingual, supporting Spanish, Catalan, and English. It uses a custom JavaScript implementation (`public/js/translations.js`) that:
 
 - Switches content dynamically using `data-key` attributes.
 - Persists language selection via URL parameters (`?lang=en`, `?lang=es`, or `?lang=ca`).
 - Automatically detects the user's preferred language on first load.
 - Updates page title, meta descriptions, and ARIA attributes for accessibility.
+- **Section-based titles:** Dynamic page titles update as you scroll through sections using an Intersection Observer.
+- **English section IDs:** All section IDs use English identifiers (`home`, `20years`, `concerts`, `market`, `activities`, `participate`, `location`) for maintainability.
 
 ### Modern UX & Animations
 
+- **Smart Section Detection:** Uses Intersection Observer with multiple thresholds to accurately detect the most visible section, enabling proper navigation highlighting even when scrolling backwards.
 - **Reveal on Scroll:** Band cards and sections smoothly fade and slide into view as the user scrolls.
-- **Smooth Navigation:** Internal links use smooth-scroll behavior.
-- **Responsive Layout:** A mobile-first approach ensuring the gritty aesthetic works on all screen sizes.
-- **Micro-interactions:** Hover effects, refined button states, and custom mobile menu.
+- **Smooth Navigation:** Internal links use smooth-scroll behavior with automatic section tracking.
+- **Responsive Layout:** Mobile-first approach ensuring the gritty aesthetic works on all screen sizes.
+- **Micro-interactions:** Hover effects, refined button states, and custom mobile hamburger menu.
+- **Accessible Navigation:** Proper ARIA labels, keyboard navigation support, and semantic HTML structure.
 
 ## 🛠️ Tech Stack
 
