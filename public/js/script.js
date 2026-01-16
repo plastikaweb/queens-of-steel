@@ -1,6 +1,7 @@
 import { translations } from './translations.js';
 
 let currentSection = 'home';
+let locationMarker = null;
 
 function updateTitle(lang) {
   if (!translations[lang]) return;
@@ -58,6 +59,28 @@ function setLang(lang) {
   if (metaDesc && translations[lang].meta_description) {
     metaDesc.setAttribute('content', translations[lang].meta_description);
   }
+
+  // Update map popup if it exists
+  if (locationMarker && translations[lang].location_address) {
+     locationMarker.setPopupContent(`<b>Palau Alòs</b><br>${translations[lang].location_address}`);
+  }
+
+  // Update aria-labels for language buttons
+  const langLabels = {
+    es: 'lang_es',
+    ca: 'lang_ca',
+    en: 'lang_en'
+  };
+
+  Object.entries(langLabels).forEach(([l, key]) => {
+    const label = translations[lang][key];
+    if (label) {
+      document.querySelectorAll(`#btn-${l}, .btn-${l}-mob`).forEach(btn => {
+        btn.setAttribute('aria-label', label);
+      });
+    }
+  });
+
   const newUrl = new URL(window.location);
   newUrl.searchParams.set('lang', lang);
   window.history.pushState({}, '', newUrl);
@@ -142,10 +165,12 @@ function initMap() {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
+  
+  const address = translations[document.documentElement.lang]?.location_address || 'c/ Sant Pere Més Baix 55, 08003 Barcelona';
 
-  L.marker(palauAlosCoords)
+  locationMarker = L.marker(palauAlosCoords)
     .addTo(map)
-    .bindPopup('<b>Palau Alòs</b><br>c/ Sant Pere Més Baix 55, 08003 Barcelona')
+    .bindPopup(`<b>Palau Alòs</b><br>${address}`)
     .openPopup();
 }
 document.addEventListener('DOMContentLoaded', () => {
@@ -177,10 +202,21 @@ document.addEventListener('DOMContentLoaded', () => {
           else if (id === 'concerts') currentSection = 'concerts';
 
           updateTitle(document.documentElement.lang);
+
+          document.querySelectorAll('.nav-menu a, .nav-main > a').forEach(link => {
+            link.classList.remove('selected');
+            const href = link.getAttribute('href');
+            if (href === `#${id}`) {
+              link.classList.add('selected');
+            }
+          });
         }
       });
     },
-    { threshold: 0.51 }
+    { 
+      threshold: 0,
+      rootMargin: '-20% 0px -60% 0px' 
+    }
   );
 
   sections.forEach(section => {
