@@ -16,5 +16,5 @@ h2 {
   display: inline-block;
   text-align: center;
   transform: rotate(-1deg);
-  width: 100%;
+  width: auto;
 }
