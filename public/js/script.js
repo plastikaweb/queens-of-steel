@@ -6,17 +6,7 @@ let locationMarker = null;
 function updateTitle(lang) {
   if (!translations[lang]) return;
 
-  const titleMap = {
-    home: 'title_home',
-    '20-anys': 'title_20years',
-    concerts: 'title_concerts',
-    mercadet: 'title_mercadillo',
-    activitats: 'title_activities',
-    voluntaris: 'title_participate',
-    ubicacio: 'title_location',
-  };
-
-  const titleKey = titleMap[currentSection] || 'title_home';
+  const titleKey = `title_${currentSection}`;
   if (translations[lang][titleKey]) {
     document.title = translations[lang][titleKey];
   }
@@ -193,13 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.id;
-          if (id === 'inici') currentSection = 'home';
-          else if (id === 'mercadet') currentSection = 'mercadet';
-          else if (id === 'activitats') currentSection = 'activitats';
-          else if (id === 'voluntaris') currentSection = 'voluntaris';
-          else if (id === 'ubicacio') currentSection = 'ubicacio';
-          else if (id === '20-anys') currentSection = '20-anys';
-          else if (id === 'concerts') currentSection = 'concerts';
+          currentSection = id; // Set directly from English ID
 
           updateTitle(document.documentElement.lang);
 

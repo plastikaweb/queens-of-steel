@@ -1,12 +1,10 @@
 /* --- Voluntariat --- */
-#voluntaris {
+#participate {
   background-color: var(--color-paper);
   color: var(--color-black);
-  clip-path: polygon(0 2%, 100% 0, 100% 98%, 0 100%); /* Lleuger angle */
-  padding: 5rem 0;
 }
 
-#voluntaris h2 {
+#participate h2 {
   border-color: var(--color-black);
   text-shadow: none;
 }

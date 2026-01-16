@@ -76,7 +76,7 @@ nav a.selected {
   background: none;
   border: 1px solid var(--color-accent);
   color: var(--color-text);
-  padding: 3px 6px;
+  padding: 4px 8px;
   cursor: pointer;
   font-family: var(--font-body);
 }
