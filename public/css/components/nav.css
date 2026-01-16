@@ -276,6 +276,7 @@ nav a.selected {
   }
 
   .lang-switch-mobile button {
+    cursor: pointer;
     background: transparent;
     border: 2px solid var(--color-accent);
     color: var(--color-text);
