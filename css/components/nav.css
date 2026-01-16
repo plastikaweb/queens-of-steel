@@ -61,21 +61,22 @@ nav a {
   font-weight: bold;
   text-transform: uppercase;
 }
-nav a:hover {
+nav a:hover,
+nav a.selected {
   color: var(--color-accent);
 }
 
 .lang-switch {
   display: flex;
-  gap: 10px;
-  font-size: 0.9rem;
+  gap: 1rem;
+  font-size: 1rem;
   margin-left: 20px;
 }
 .lang-switch button {
   background: none;
   border: 1px solid var(--color-accent);
   color: var(--color-text);
-  padding: 2px 5px;
+  padding: 3px 6px;
   cursor: pointer;
   font-family: var(--font-body);
 }
@@ -255,7 +256,7 @@ nav a:hover {
 
   .nav-menu ul {
     flex-direction: column;
-    gap: .25rem;
+    gap: 1rem;
     text-align: center;
     margin: 90px auto;
     padding: 2rem 0;
