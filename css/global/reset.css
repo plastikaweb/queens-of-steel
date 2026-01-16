@@ -1,6 +1,8 @@
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* Fix for sticky nav covering titles */
+  scroll-padding-top: 100px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) var(--color-bg);
 }
 
 /* --- Reset & Base --- */
