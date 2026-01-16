@@ -198,6 +198,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateTitle(document.documentElement.lang);
 
+        // Update URL hash while preserving language parameter
+        const newUrl = new URL(window.location);
+        newUrl.hash = id;
+        window.history.replaceState({}, '', newUrl);
+
         document.querySelectorAll('.nav-menu a, .nav-main > a').forEach(link => {
           link.classList.remove('selected');
           const href = link.getAttribute('href');
@@ -226,17 +231,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   },
-
   {
     threshold: 0,
-    rootMargin: '-20% 0px -60% 0px'
+    rootMargin: '200px 0px -100px 0px'
   }
 );
 
   document.querySelectorAll('.band-card, .mercadillo-card').forEach(el => {
     el.style.opacity = 0;
     el.style.transform = 'translateY(20px)';
-    el.style.transition = 'all 0.6s ease-out';
+    el.style.transition = 'all 0.3s ease-out';
     revealObserver.observe(el);
   });
 });
