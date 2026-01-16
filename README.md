@@ -140,7 +140,7 @@ The festival is looking for volunteers to help with:
 - Logistics
 - Transportation
 
-Contact: <cooperate@queensofsteel.com>
+Contact: <ac@queensofsteel.com>
 
 ## ⚖️ Manifesto
 
