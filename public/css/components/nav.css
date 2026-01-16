@@ -143,8 +143,8 @@ nav a.selected {
     align-items: center;
     justify-content: center;
     z-index: 102;
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     padding: 0;
     cursor: pointer;
     background: transparent;
@@ -158,8 +158,8 @@ nav a.selected {
   }
 
   .hamburger-box {
-    width: 30px;
-    height: 24px;
+    width: 24px;
+    height: 20px;
     display: inline-block;
     position: relative;
   }
@@ -167,8 +167,8 @@ nav a.selected {
   .hamburger-inner,
   .hamburger-inner::before,
   .hamburger-inner::after {
-    width: 30px;
-    height: 3px;
+    width: 24px;
+    height: 2px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -192,11 +192,11 @@ nav a.selected {
   }
 
   .hamburger-inner::before {
-    top: -10px;
+    top: -8px;
   }
 
   .hamburger-inner::after {
-    bottom: -10px;
+    bottom: -8px;
   }
 
   .hamburger.is-active .hamburger-inner {
