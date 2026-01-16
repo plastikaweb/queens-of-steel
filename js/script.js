@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMap();
   const params = new URLSearchParams(window.location.search);
   const langParam = params.get('lang');
-  let currentLang = 'es'; // Default
+  let currentLang = 'es';
 
   if (langParam && translations[langParam]) {
     currentLang = langParam;
@@ -180,25 +180,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section, header');
   const titleObserver = new IntersectionObserver(
     entries => {
+      // Find the section with the highest intersection ratio
+      let maxRatio = 0;
+      let mostVisibleSection = null;
+
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          currentSection = id; // Set directly from English ID
-
-          updateTitle(document.documentElement.lang);
-
-          document.querySelectorAll('.nav-menu a, .nav-main > a').forEach(link => {
-            link.classList.remove('selected');
-            const href = link.getAttribute('href');
-            if (href === `#${id}`) {
-              link.classList.add('selected');
-            }
-          });
+        if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+          maxRatio = entry.intersectionRatio;
+          mostVisibleSection = entry.target;
         }
       });
+
+      // Update only if we found a visible section
+      if (mostVisibleSection) {
+        const id = mostVisibleSection.id;
+        currentSection = id;
+
+        updateTitle(document.documentElement.lang);
+
+        document.querySelectorAll('.nav-menu a, .nav-main > a').forEach(link => {
+          link.classList.remove('selected');
+          const href = link.getAttribute('href');
+          if (href === `#${id}`) {
+            link.classList.add('selected');
+          }
+        });
+      }
     },
     { 
-      threshold: 0,
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
       rootMargin: '-20% 0px -60% 0px' 
     }
   );
@@ -215,7 +225,13 @@ document.addEventListener('DOMContentLoaded', () => {
         entry.target.style.transform = 'translateY(0)';
       }
     });
-  });
+  },
+
+  {
+    threshold: 0,
+    rootMargin: '-20% 0px -60% 0px'
+  }
+);
 
   document.querySelectorAll('.band-card, .mercadillo-card').forEach(el => {
     el.style.opacity = 0;
