@@ -257,7 +257,6 @@ nav a.selected {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
-    margin: 90px auto;
     padding: 2rem 0;
     width: 100%;
   }
@@ -269,8 +268,8 @@ nav a.selected {
 
   .lang-switch-mobile {
     display: flex !important;
-    gap: 15px;
-    margin-top: 0;
+    gap: 12px;
+    margin-top: 1.5rem;
     margin-bottom: 1rem;
     justify-content: center;
   }
@@ -278,10 +277,10 @@ nav a.selected {
   .lang-switch-mobile button {
     cursor: pointer;
     background: transparent;
-    border: 2px solid var(--color-accent);
+    border: 1px solid var(--color-accent);
     color: var(--color-text);
-    padding: 5px 10px;
-    font-size: 1rem;
+    padding: 6px 12px;
+    font-size: 0.95rem;
     font-family: var(--font-body);
     text-transform: uppercase;
   }
