@@ -111,6 +111,16 @@ function initMobileMenu() {
   }
 }
 
+function getBrowserLanguage() {
+  const browserLang = navigator.language || navigator.userLanguage;
+  const langCode = browserLang.split('-')[0].toLowerCase();
+  
+  if (['ca', 'es', 'en'].includes(langCode)) {
+    return langCode;
+  }
+  return 'en';
+}
+
 function initLanguageSwitcher() {
   const langButtons = document.querySelectorAll('.lang-switch button, .lang-switch-mobile button');
   
@@ -119,7 +129,7 @@ function initLanguageSwitcher() {
       // Determine language from ID or class
       // IDs: btn-es, btn-ca, btn-en
       // Classes: btn-es-mob, btn-ca-mob, btn-en-mob
-      let targetLang = 'es'; // Default
+      let targetLang = getBrowserLanguage(); // Default based on browser language
 
       if (btn.id && btn.id.startsWith('btn-')) {
         targetLang = btn.id.replace('btn-', '');
@@ -169,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMap();
   const params = new URLSearchParams(window.location.search);
   const langParam = params.get('lang');
-  let currentLang = 'es';
+  let currentLang = getBrowserLanguage(); // Default based on browser language
 
   if (langParam && translations[langParam]) {
     currentLang = langParam;
