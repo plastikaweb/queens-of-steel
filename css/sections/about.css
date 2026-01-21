@@ -4,3 +4,15 @@
   border-left: 4px solid var(--color-accent);
   padding-left: 20px;
 }
+
+.fest-image {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  border: 1px dashed var(--color-accent);
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(223, 112, 229, 0.3);
+}
