@@ -1,4 +1,4 @@
-/* Main Stylesheet - Queens of Steel Fest 2026 */
+/* Main Style sheet - Queens of Steel Fest 2026 */
 
 /* Global */
 @import 'global/variables.css';
@@ -21,3 +21,4 @@
 @import 'sections/activities.css';
 @import 'sections/volunteers.css';
 @import 'sections/location.css';
+@import 'sections/text.css';

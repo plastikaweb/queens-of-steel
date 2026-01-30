@@ -1,4 +1,4 @@
-/* --- Cards (Bands, Mercadillo, Info) --- */
+/* --- Cards (Bands, Market, Info) --- */
 
 /* Info Item (Hero) */
 .info-item {
@@ -30,7 +30,7 @@
   font-size: 1.1rem;
 }
 
-/* Common Band/Mercadillo Link Styles */
+/* Common Band/Market Link Styles */
 .band-external-links {
   margin-top: 1rem;
   display: flex;
