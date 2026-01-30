@@ -1,4 +1,4 @@
-/* Separadors estil paper estripat */
+/* Paper torn separator */
 .torn-separator {
   height: 30px;
   background: var(--color-accent);

@@ -1,4 +1,4 @@
-/* --- Activitats Side-by-Side --- */
+/* --- Activities Side-by-Side --- */
 .activity-split {
   display: flex;
   gap: 3rem;
@@ -33,7 +33,7 @@
 }
 
 .activity-content h3 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--color-accent);
   margin-bottom: 1rem;
   transform: rotate(-1deg);
